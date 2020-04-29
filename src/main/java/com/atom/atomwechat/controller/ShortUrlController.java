@@ -29,6 +29,7 @@ public class ShortUrlController {
     @PostMapping("/shortUrl")
     public ResponseEntity<ShortUrlResp> shortUrl(@RequestParam("longUrl") String longUrl) throws IOException {
 
+        //get access_token
         AccessTokenResp accessTokenResp = restTemplate.getForObject(WeChatConstant.ACCESS_TOKEN_URL, AccessTokenResp.class, WeChatConstant.APPID, WeChatConstant.APPSECRET);
 
         String url = WeChatConstant.SHORT_URL.replace("ACCESS_TOKEN", accessTokenResp.getAccess_token());
