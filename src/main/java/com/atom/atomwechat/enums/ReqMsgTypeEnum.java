@@ -12,6 +12,9 @@ public enum ReqMsgTypeEnum {
      * 文本消息
      */
     TEXT("text", "文本消息"),
+    /**
+     * 语音消息
+     */
     VOICE("voice", "语音消息"),
     IMAGE("image", "图片消息"),
     VIDEO("video", "视频消息"),
