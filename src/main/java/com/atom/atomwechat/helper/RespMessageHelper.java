@@ -25,9 +25,8 @@ public class RespMessageHelper {
      *
      * @param reqTextMessage
      * @return
-     * @throws JAXBException
      */
-    public String buildMediaArticleMsg(ReqTextMessage reqTextMessage) throws JAXBException {
+    public String buildMediaArticleMsg(ReqTextMessage reqTextMessage) {
 
 
         MediaArticle mediaArticle = new MediaArticle();

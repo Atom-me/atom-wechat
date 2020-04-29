@@ -30,11 +30,11 @@ public class ShortUrlController {
     public ResponseEntity<ShortUrlResp> shortUrl(@RequestParam("longUrl") String longUrl) throws IOException {
 
         //get access_token
-        AccessTokenResp accessTokenResp = restTemplate.getForObject(WeChatConstant.ACCESS_TOKEN_URL, AccessTokenResp.class, WeChatConstant.APPID, WeChatConstant.APPSECRET);
+        AccessTokenResp accessTokenResp = restTemplate.getForObject(WeChatConstant.ACCESS_TOKEN_URL, AccessTokenResp.class, WeChatConstant.APP_ID, WeChatConstant.APP_SECRET);
 
-        String url = WeChatConstant.SHORT_URL.replace("ACCESS_TOKEN", accessTokenResp.getAccess_token());
+        String url = WeChatConstant.SHORT_URL.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
         ShortUrlReq shortUrlReq = ShortUrlReq.builder()
-                .long_url(longUrl)
+                .longUrl(longUrl)
                 .action("long2short")
                 .build();
         ObjectMapper mapper = new ObjectMapper();

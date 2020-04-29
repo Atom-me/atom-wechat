@@ -35,12 +35,8 @@ public class ReqTextMsgHandler implements ReqMsgHandler<ReqTextMessage> {
                 "</xml>";
 
         if ("图文".equals(reqTextMessage.getContent())) {
-            try {
-                respXml = respMessageHelper.buildMediaArticleMsg(reqTextMessage);
-                log.info(respXml);
-            } catch (JAXBException e) {
-                e.printStackTrace();
-            }
+            respXml = respMessageHelper.buildMediaArticleMsg(reqTextMessage);
+            log.info(respXml);
         }
 
         return respXml;

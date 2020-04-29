@@ -22,7 +22,7 @@ public class ReqEventMsgHandler implements ReqMsgHandler<ReqClickEventMessage> {
 //        String event = reqClickEventMessge.getEvent();
 //        String eventKey = reqClickEventMessge.getEventKey();
 
-        // todo process event response
+        //todo process event response
         log.info(reqClickEventMessage.toString());
 
         String respXml = "<xml>\n" +

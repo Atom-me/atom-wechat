@@ -1,5 +1,6 @@
 package com.atom.atomwechat.model.req.shorturl;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Data;
 
@@ -18,5 +19,6 @@ public class ShortUrlReq {
     /**
      * 需要转换的长链接，支持http://、https://、weixin://wxpay 格式的url
      */
-    private String long_url;
+    @JsonProperty(value = "long_url")
+    private String longUrl;
 }

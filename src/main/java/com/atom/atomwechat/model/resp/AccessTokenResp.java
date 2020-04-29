@@ -1,5 +1,6 @@
 package com.atom.atomwechat.model.resp;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -12,11 +13,15 @@ public class AccessTokenResp implements Serializable {
     /**
      * 获取到的凭证
      */
-    private String access_token;
+    @JsonProperty(value = "access_token")
+    private String accessToken;
     /**
      * 凭证有效时间，单位：秒
      */
-    private Long expires_in;
-    private Integer errcode;
-    private String errmsg;
+    @JsonProperty(value = "expires_in")
+    private Long expiresIn;
+    @JsonProperty(value = "errcode")
+    private Integer errCode;
+    @JsonProperty(value = "errmsg")
+    private String errMsg;
 }

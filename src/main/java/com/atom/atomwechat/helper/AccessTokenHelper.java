@@ -22,7 +22,7 @@ public class AccessTokenHelper {
     @Cacheable(cacheNames = "accessTokenCache")
     public AccessTokenResp accessToken() {
         log.error("get accessToken method >>>>>>>>>>>>>>>>>>>>>>");
-        AccessTokenResp accessTokenResp = restTemplate.getForObject(WeChatConstant.ACCESS_TOKEN_URL, AccessTokenResp.class, WeChatConstant.APPID, WeChatConstant.APPSECRET);
+        AccessTokenResp accessTokenResp = restTemplate.getForObject(WeChatConstant.ACCESS_TOKEN_URL, AccessTokenResp.class, WeChatConstant.APP_ID, WeChatConstant.APP_SECRET);
         return accessTokenResp;
     }
 

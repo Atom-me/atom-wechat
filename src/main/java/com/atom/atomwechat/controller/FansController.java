@@ -30,7 +30,7 @@ public class FansController {
     @GetMapping("fansinfos")
     public List<FansInfo> fansInfoList() {
         List<FansInfo> fansInfos = new ArrayList<>();
-        fansHelper.list().getData().getOpenid().forEach(openid -> {
+        fansHelper.list().getData().getOpenId().forEach(openid -> {
             FansInfo info = fansHelper.info(openid);
             fansInfos.add(info);
         });

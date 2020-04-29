@@ -1,5 +1,6 @@
 package com.atom.atomwechat.model.fans;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.util.List;
@@ -12,5 +13,6 @@ public class OpenId {
     /**
      * OPENID的列表
      */
-    private List<String> openid;
+    @JsonProperty(value = "openid")
+    private List<String> openId;
 }

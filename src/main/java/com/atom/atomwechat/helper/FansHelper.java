@@ -23,13 +23,13 @@ public class FansHelper {
     private AccessTokenHelper accessTokenHelper;
 
     public FansList list() {
-        FansList fansLis = restTemplate.getForObject(WeChatConstant.FANS_LIST_URL, FansList.class, accessTokenHelper.accessToken().getAccess_token(), "");
+        FansList fansLis = restTemplate.getForObject(WeChatConstant.FANS_LIST_URL, FansList.class, accessTokenHelper.accessToken().getAccessToken(), "");
         log.info(fansLis.toString());
         return fansLis;
     }
 
     public FansInfo info(String openId) {
-        FansInfo fansInfo = restTemplate.getForObject(WeChatConstant.FANS_INFO_URL, FansInfo.class, accessTokenHelper.accessToken().getAccess_token(), openId);
+        FansInfo fansInfo = restTemplate.getForObject(WeChatConstant.FANS_INFO_URL, FansInfo.class, accessTokenHelper.accessToken().getAccessToken(), openId);
         log.info(fansInfo.toString());
         return fansInfo;
     }

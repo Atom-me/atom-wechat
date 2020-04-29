@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @author atom
  */
 @Component
-@MsgType(type = ReqMsgTypeEnum.SHORTVIDEO, msgClass = ReqShortVideoMessage.class)
+@MsgType(type = ReqMsgTypeEnum.SHORT_VIDEO, msgClass = ReqShortVideoMessage.class)
 @Slf4j
 public class ReqShortVideoMsgHandler implements ReqMsgHandler<ReqShortVideoMessage> {
     @Override
@@ -23,6 +23,6 @@ public class ReqShortVideoMsgHandler implements ReqMsgHandler<ReqShortVideoMessa
 
     @Override
     public ReqMsgTypeEnum getMsgType() {
-        return ReqMsgTypeEnum.SHORTVIDEO;
+        return ReqMsgTypeEnum.SHORT_VIDEO;
     }
 }

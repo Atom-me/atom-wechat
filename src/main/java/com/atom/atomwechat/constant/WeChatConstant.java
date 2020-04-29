@@ -13,12 +13,12 @@ public interface WeChatConstant {
     /**
      * 微信公众号APPID
      */
-    String APPID = "wxe69d5134ef7da536";
+    String APP_ID = "wxe69d5134ef7da536";
 
     /**
      * 微信公众号 APPSECRET
      */
-    String APPSECRET = "06db111e09c523c4a74ccb58576e2ee1";
+    String APP_SECRET = "06db111e09c523c4a74ccb58576e2ee1";
 
     /**
      * 应用授权作用域，snsapi_base （不弹出授权页面，直接跳转，只能获取用户openid）

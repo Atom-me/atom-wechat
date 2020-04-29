@@ -1,5 +1,6 @@
 package com.atom.atomwechat.model.fans;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 /**
@@ -31,7 +32,10 @@ public class FansList {
     /**
      * 拉取列表的最后一个用户的OPENID
      */
-    private String next_openid;
-    private Integer errcode;
-    private String errmsg;
+    @JsonProperty(value = "next_openid")
+    private String nextOpenId;
+    @JsonProperty(value = "errcode")
+    private Integer errCode;
+    @JsonProperty(value = "errmsg")
+    private String errMsg;
 }

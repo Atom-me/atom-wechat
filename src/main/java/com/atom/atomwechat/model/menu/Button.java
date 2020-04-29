@@ -1,5 +1,6 @@
 package com.atom.atomwechat.model.menu;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.util.List;
@@ -11,5 +12,6 @@ import java.util.List;
 public class Button {
     private String name;
     private String type;
-    private List<Button> sub_button;
+    @JsonProperty(value = "sub_button")
+    private List<Button> subButton;
 }

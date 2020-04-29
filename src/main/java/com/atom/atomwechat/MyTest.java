@@ -38,7 +38,7 @@ public class MyTest {
 
         article.setItem(Arrays.asList(item));
         mediaArticle.setArticles(Arrays.asList(article));
-        transferObjectToXML(mediaArticle);
+        transferObject2Xml(mediaArticle);
     }
 
 
@@ -51,11 +51,11 @@ public class MyTest {
         text.setToUserName("sdlfkj");
         text.setFromUserName("dlksf32");
 
-        transferObjectToXML(text);
+        transferObject2Xml(text);
 
     }
 
-    private void transferObjectToXML(Object object) throws JAXBException {
+    private void transferObject2Xml(Object object) throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(object.getClass());
         Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
         //Required formatting??

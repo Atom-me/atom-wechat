@@ -5,6 +5,8 @@ import lombok.Data;
 import java.util.List;
 
 /**
+ * 自定义菜单
+ *
  * @author atom
  */
 @Data

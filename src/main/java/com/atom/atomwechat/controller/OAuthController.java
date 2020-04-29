@@ -1,8 +1,8 @@
 package com.atom.atomwechat.controller;
 
 import com.atom.atomwechat.constant.WeChatConstant;
-import com.atom.atomwechat.model.wechat.Oauth2AccessTokenResponse;
-import com.atom.atomwechat.model.wechat.WeChatUserInfo;
+import com.atom.atomwechat.model.oauth.Oauth2AccessTokenResponse;
+import com.atom.atomwechat.model.oauth.WeChatUserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -51,7 +51,7 @@ public class OAuthController {
 
 
         String url = "https://open.weixin.qq.com/connect/oauth2/authorize" +
-                "?appid=" + WeChatConstant.APPID +
+                "?appid=" + WeChatConstant.APP_ID +
                 "&redirect_uri=" + callbackUrl +
                 "&response_type=code" +
                 "&scope=" + WeChatConstant.SNSAPI_USERINFO +
@@ -76,22 +76,22 @@ public class OAuthController {
 
         // 得到code之后，通过code换取网页授权access_token(请求腾讯认证服务器)
         String url = "https://api.weixin.qq.com/sns/oauth2/access_token" +
-                "?appid=" + WeChatConstant.APPID +
-                "&secret=" + WeChatConstant.APPSECRET +
+                "?appid=" + WeChatConstant.APP_ID +
+                "&secret=" + WeChatConstant.APP_SECRET +
                 "&code=" + code +
                 "&grant_type=authorization_code";
-        ResponseEntity<Oauth2AccessTokenResponse> stringResponseEntity = restTemplate.postForEntity(url, null, Oauth2AccessTokenResponse.class);
-        Oauth2AccessTokenResponse oauth2AccessTokenResponse = stringResponseEntity.getBody();
+        ResponseEntity<Oauth2AccessTokenResponse> oauth2AccessTokenResponseEntity = restTemplate.postForEntity(url, null, Oauth2AccessTokenResponse.class);
+        Oauth2AccessTokenResponse oauth2AccessTokenResponse = oauth2AccessTokenResponseEntity.getBody();
         log.info(oauth2AccessTokenResponse.toString());
 
         //根据openid 和 access_token 拉取用户信息(需scope为 snsapi_userinfo)（请求腾讯资源服务器）
         //http：GET（请使用https协议） https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN
 
-        String userInfoURL = "https://api.weixin.qq.com/sns/userinfo?" +
-                "access_token=" + oauth2AccessTokenResponse.getAccess_token() +
-                "&openid=" + oauth2AccessTokenResponse.getOpenid() +
+        String userInfoUrl = "https://api.weixin.qq.com/sns/userinfo?" +
+                "access_token=" + oauth2AccessTokenResponse.getAccessToken() +
+                "&openid=" + oauth2AccessTokenResponse.getOpenId() +
                 "&lang=zh_CN";
-        WeChatUserInfo userInfo = restTemplate.getForObject(userInfoURL, WeChatUserInfo.class);
+        WeChatUserInfo userInfo = restTemplate.getForObject(userInfoUrl, WeChatUserInfo.class);
         log.info(userInfo.toString());
         model.addAttribute("userInfo", userInfo);
         return "userInfo";

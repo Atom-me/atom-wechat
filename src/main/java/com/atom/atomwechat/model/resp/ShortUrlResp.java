@@ -1,18 +1,24 @@
 package com.atom.atomwechat.model.resp;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 /**
+ * 长链接转短链接腾讯返回对象
+ *
  * @author Atom
  */
 @Data
 public class ShortUrlResp {
-    private Integer errcode;
-    private String errmsg;
+    @JsonProperty(value = "errcode")
+    private Integer errCode;
+    @JsonProperty(value = "errmsg")
+    private String errMsg;
     /**
      * 短链接
      */
-    private String short_url;
+    @JsonProperty(value = "short_url")
+    private String shortUrl;
 
 
 }

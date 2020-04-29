@@ -55,7 +55,7 @@ public class MenuHelper {
         button.setName("工具箱");
 
         //设置子菜单,菜单布局
-        button.setSub_button(Arrays.asList(clickButton2, clickButton3, viewButton2));
+        button.setSubButton(Arrays.asList(clickButton2, clickButton3, viewButton2));
 
         menu.setButton(Arrays.asList(clickButton, viewButton, button));
         return menu;
@@ -63,13 +63,13 @@ public class MenuHelper {
 
     public String create() throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
-        AccessTokenResp accessTokenResp = restTemplate.getForObject(WeChatConstant.ACCESS_TOKEN_URL, AccessTokenResp.class, WeChatConstant.APPID, WeChatConstant.APPSECRET);
+        AccessTokenResp accessTokenResp = restTemplate.getForObject(WeChatConstant.ACCESS_TOKEN_URL, AccessTokenResp.class, WeChatConstant.APP_ID, WeChatConstant.APP_SECRET);
 
         Menu menu = setupMenu();
 
         ObjectMapper mapper = new ObjectMapper();
         String menuJsonString = mapper.writeValueAsString(menu);
-        String createMenuUrl = WeChatConstant.MENU_CREATE_URL.replace("ACCESS_TOKEN", accessTokenResp.getAccess_token());
+        String createMenuUrl = WeChatConstant.MENU_CREATE_URL.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);

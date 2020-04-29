@@ -1,4 +1,4 @@
-package com.atom.atomwechat.model.wechat;
+package com.atom.atomwechat.model.oauth;
 
 import lombok.Data;
 

@@ -9,10 +9,10 @@ import org.springframework.cache.annotation.EnableCaching;
  */
 @SpringBootApplication
 @EnableCaching
-public class AtomwechatApplication {
+public class AtomWeChatApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AtomwechatApplication.class, args);
+        SpringApplication.run(AtomWeChatApplication.class, args);
     }
 
 }
