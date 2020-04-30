@@ -1,6 +1,5 @@
 package com.atom.atomwechat.controller;
 
-import com.atom.atomwechat.constant.WeChatConstant;
 import com.atom.atomwechat.model.oauth.Oauth2AccessTokenResponse;
 import com.atom.atomwechat.model.oauth.WeChatUserInfo;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +13,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
+import static com.atom.atomwechat.constant.WeChatConstant.*;
 
 /**
  * @author Atom
@@ -47,24 +48,21 @@ public class OAuthController {
          * 授权后重定向的回调链接地址， 请使用 urlEncode 对链接进行处理
          * 如果用户同意授权，页面将跳转至 redirect_uri/?code=CODE&state=STATE。
          */
-        String callbackUrl = WeChatConstant.BASE_DOMAIN_URL + "/wechat/callback";
-
+        String callbackUrl = BASE_DOMAIN_URL + "/wechat/callback";
 
         String url = "https://open.weixin.qq.com/connect/oauth2/authorize" +
-                "?appid=" + WeChatConstant.APP_ID +
+                "?appid=" + APP_ID +
                 "&redirect_uri=" + callbackUrl +
                 "&response_type=code" +
-                "&scope=" + WeChatConstant.SNSAPI_USERINFO +
+                "&scope=" + SNSAPI_USERINFO +
                 "&state=" + "anyStringYouWant" +
                 "#wechat_redirect";
         response.sendRedirect(url);
-
-
     }
 
 
     /**
-     * 这个接口地址是由我们指定，由微信服务器回调
+     * 这个接口地址是由我们指定，由腾讯服务器回调
      * 如果用户同意授权，页面将跳转至 redirect_uri/?code=CODE&state=STATE。
      *
      * @param request
@@ -76,8 +74,8 @@ public class OAuthController {
 
         // 得到code之后，通过code换取网页授权access_token(请求腾讯认证服务器)
         String url = "https://api.weixin.qq.com/sns/oauth2/access_token" +
-                "?appid=" + WeChatConstant.APP_ID +
-                "&secret=" + WeChatConstant.APP_SECRET +
+                "?appid=" + APP_ID +
+                "&secret=" + APP_SECRET +
                 "&code=" + code +
                 "&grant_type=authorization_code";
         ResponseEntity<Oauth2AccessTokenResponse> oauth2AccessTokenResponseEntity = restTemplate.postForEntity(url, null, Oauth2AccessTokenResponse.class);

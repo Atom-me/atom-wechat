@@ -1,6 +1,5 @@
 package com.atom.atomwechat.controller;
 
-import com.atom.atomwechat.constant.WeChatConstant;
 import com.atom.atomwechat.helper.AccessTokenHelper;
 import com.atom.atomwechat.model.blacklist.BlackList;
 import com.atom.atomwechat.model.fans.Subscriber;
@@ -18,6 +17,8 @@ import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.atom.atomwechat.constant.WeChatConstant.*;
 
 /**
  * 黑名单管理
@@ -42,7 +43,7 @@ public class BlackListController {
     @RequestMapping("getBlackList")
     public ResponseEntity<List<Subscriber>> getBlackList() {
         AccessTokenResp accessTokenResp = accessTokenHelper.accessToken();
-        String getBlackListUrl = WeChatConstant.GET_BLACK_LIST_URL.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
+        String getBlackListUrl = GET_BLACK_LIST_URL.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
         //当 begin_openid 为空时，默认从开头拉取。
         Map<String, String> param = new HashMap<>(1);
         param.put("begin_openid", "");
@@ -54,7 +55,7 @@ public class BlackListController {
             return ResponseEntity.ok(weChatUserInfoList);
         }
         blackList.getData().getOpenId().forEach(openId -> {
-            Subscriber subscriber = restTemplate.getForObject(WeChatConstant.FANS_INFO_URL, Subscriber.class, accessTokenHelper.accessToken().getAccessToken(), openId);
+            Subscriber subscriber = restTemplate.getForObject(FANS_INFO_URL, Subscriber.class, accessTokenHelper.accessToken().getAccessToken(), openId);
             weChatUserInfoList.add(subscriber);
         });
         return ResponseEntity.ok(weChatUserInfoList);
@@ -69,7 +70,7 @@ public class BlackListController {
     @PostMapping("batchblacklist")
     public ResponseEntity<String> batchBlackList(@RequestBody List<String> openIds) {
         AccessTokenResp accessTokenResp = accessTokenHelper.accessToken();
-        String get_black_list_url = WeChatConstant.BATCH_BLACK_LIST.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
+        String get_black_list_url = BATCH_BLACK_LIST.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
         //当 begin_openid 为空时，默认从开头拉取。
         Map<String, List<String>> param = new HashMap<>(1);
         param.put("openid_list", openIds);
@@ -86,7 +87,7 @@ public class BlackListController {
     @PostMapping(value = "batchunblacklist")
     public ResponseEntity<String> batchUnBlackList(@RequestBody List<String> openIds) {
         AccessTokenResp accessTokenResp = accessTokenHelper.accessToken();
-        String get_black_list_url = WeChatConstant.BATCH_UN_BLACK_LIST.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
+        String get_black_list_url = BATCH_UN_BLACK_LIST.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
         //当 begin_openid 为空时，默认从开头拉取。
         Map<String, List<String>> param = new HashMap<>(1);
         param.put("openid_list", openIds);

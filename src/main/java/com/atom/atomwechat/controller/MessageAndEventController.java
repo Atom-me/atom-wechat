@@ -2,7 +2,6 @@ package com.atom.atomwechat.controller;
 
 
 import com.atom.atomwechat.config.MessageBeanContext;
-import com.atom.atomwechat.constant.WeChatConstant;
 import com.atom.atomwechat.enums.ReqMsgTypeEnum;
 import com.atom.atomwechat.factory.ReqMsgHandlerFactory;
 import com.atom.atomwechat.handler.ReqMsgHandler;
@@ -29,6 +28,8 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+
+import static com.atom.atomwechat.constant.WeChatConstant.TOKEN;
 
 /**
  * @author atom
@@ -59,7 +60,7 @@ public class MessageAndEventController {
                            @RequestParam(value = "timestamp") String timestamp,
                            @RequestParam(value = "nonce") String nonce,
                            @RequestParam(value = "echostr") String echostr) {
-        return WeChatUtil.checkSignature(WeChatConstant.TOKEN, timestamp, nonce, signature) ? echostr : null;
+        return WeChatUtil.checkSignature(TOKEN, timestamp, nonce, signature) ? echostr : null;
     }
 
     /**

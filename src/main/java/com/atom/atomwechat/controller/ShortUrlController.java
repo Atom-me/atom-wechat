@@ -1,6 +1,5 @@
 package com.atom.atomwechat.controller;
 
-import com.atom.atomwechat.constant.WeChatConstant;
 import com.atom.atomwechat.helper.AccessTokenHelper;
 import com.atom.atomwechat.model.req.shorturl.ShortUrlReq;
 import com.atom.atomwechat.model.resp.AccessTokenResp;
@@ -17,6 +16,8 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 import java.io.IOException;
+
+import static com.atom.atomwechat.constant.WeChatConstant.SHORT_URL;
 
 /**
  * @author Atom
@@ -35,7 +36,7 @@ public class ShortUrlController {
 
         //get access_token
         AccessTokenResp accessTokenResp = accessTokenHelper.accessToken();
-        String url = WeChatConstant.SHORT_URL.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
+        String url = SHORT_URL.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
         ShortUrlReq shortUrlReq = ShortUrlReq.builder()
                 .longUrl(longUrl)
                 .action("long2short")

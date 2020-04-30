@@ -5,18 +5,22 @@ import lombok.Data;
 
 import java.io.Serializable;
 
+
 /**
+ * get access_token .
+ *
  * @author atom
  */
 @Data
 public class AccessTokenResp implements Serializable {
+
     /**
-     * 获取到的凭证
+     * 获取到的凭证.
      */
     @JsonProperty(value = "access_token")
     private String accessToken;
     /**
-     * 凭证有效时间，单位：秒
+     * 凭证有效时间，单位：秒.
      */
     @JsonProperty(value = "expires_in")
     private Long expiresIn;
