@@ -42,7 +42,7 @@ public class BlackListController {
      */
     @RequestMapping("getBlackList")
     public ResponseEntity<List<Subscriber>> getBlackList() {
-        AccessTokenResp accessTokenResp = accessTokenHelper.accessToken();
+        AccessTokenResp accessTokenResp = accessTokenHelper.fetchAccessToken();
         String getBlackListUrl = GET_BLACK_LIST_URL.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
         //当 begin_openid 为空时，默认从开头拉取。
         Map<String, String> param = new HashMap<>(1);
@@ -55,7 +55,7 @@ public class BlackListController {
             return ResponseEntity.ok(weChatUserInfoList);
         }
         blackList.getData().getOpenId().forEach(openId -> {
-            Subscriber subscriber = restTemplate.getForObject(FANS_INFO_URL, Subscriber.class, accessTokenHelper.accessToken().getAccessToken(), openId);
+            Subscriber subscriber = restTemplate.getForObject(FANS_INFO_URL, Subscriber.class, accessTokenHelper.fetchAccessToken().getAccessToken(), openId);
             weChatUserInfoList.add(subscriber);
         });
         return ResponseEntity.ok(weChatUserInfoList);
@@ -69,7 +69,7 @@ public class BlackListController {
      */
     @PostMapping("batchblacklist")
     public ResponseEntity<String> batchBlackList(@RequestBody List<String> openIds) {
-        AccessTokenResp accessTokenResp = accessTokenHelper.accessToken();
+        AccessTokenResp accessTokenResp = accessTokenHelper.fetchAccessToken();
         String get_black_list_url = BATCH_BLACK_LIST.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
         //当 begin_openid 为空时，默认从开头拉取。
         Map<String, List<String>> param = new HashMap<>(1);
@@ -86,7 +86,7 @@ public class BlackListController {
      */
     @PostMapping(value = "batchunblacklist")
     public ResponseEntity<String> batchUnBlackList(@RequestBody List<String> openIds) {
-        AccessTokenResp accessTokenResp = accessTokenHelper.accessToken();
+        AccessTokenResp accessTokenResp = accessTokenHelper.fetchAccessToken();
         String get_black_list_url = BATCH_UN_BLACK_LIST.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
         //当 begin_openid 为空时，默认从开头拉取。
         Map<String, List<String>> param = new HashMap<>(1);

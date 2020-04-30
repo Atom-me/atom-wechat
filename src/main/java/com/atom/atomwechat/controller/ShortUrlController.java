@@ -35,7 +35,7 @@ public class ShortUrlController {
     public ResponseEntity<ShortUrlResp> shortUrl(@RequestParam("longUrl") String longUrl) throws IOException {
 
         //get access_token
-        AccessTokenResp accessTokenResp = accessTokenHelper.accessToken();
+        AccessTokenResp accessTokenResp = accessTokenHelper.fetchAccessToken();
         String url = SHORT_URL.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
         ShortUrlReq shortUrlReq = ShortUrlReq.builder()
                 .longUrl(longUrl)

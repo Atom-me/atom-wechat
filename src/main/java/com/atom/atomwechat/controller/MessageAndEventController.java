@@ -32,6 +32,8 @@ import java.util.List;
 import static com.atom.atomwechat.constant.WeChatConstant.TOKEN;
 
 /**
+ * 消息和事件处理入口
+ *
  * @author atom
  */
 @RestController
@@ -79,20 +81,20 @@ public class MessageAndEventController {
         // todo 解析消息和事件推送
         String requestParams = IOUtils.toString(request.getInputStream(), StandardCharsets.UTF_8);
         log.error(requestParams);
-        ReqMsgTypeEnum reqMsgType = getMsgType(requestParams);
+        ReqMsgTypeEnum reqMsgType = parseMsgType(requestParams);
         ReqMsgHandler reqMsgHandler = reqMsgHandlerFactory.getReqMsgHandler(reqMsgType);
         return reqMsgHandler.process(getMsgBean(reqMsgType, requestParams));
-
-        // todo 1 回复文本消息
-        // todo 2 回复图片消息
-        // todo 3 回复语音消息
-        // todo 4 回复视频消息
-        // todo 5 回复音乐消息
-
-        // todo 查询菜单
-        // todo 删除菜单
     }
 
+    /**
+     * 获取消息对象
+     *
+     * @param reqMsgType
+     * @param requestParams
+     * @param <T>
+     * @return
+     * @throws JAXBException
+     */
     private <T> T getMsgBean(ReqMsgTypeEnum reqMsgType, String requestParams) throws JAXBException {
         Class messageBeanClass = messageBeanContext.getMessageBeanClass(reqMsgType);
         return (T) JAXBContext.newInstance(messageBeanClass)
@@ -100,7 +102,14 @@ public class MessageAndEventController {
                 .unmarshal(new StringReader(requestParams));
     }
 
-    private ReqMsgTypeEnum getMsgType(String requestParams) throws DocumentException {
+    /**
+     * 解析消息类型
+     *
+     * @param requestParams
+     * @return
+     * @throws DocumentException
+     */
+    private ReqMsgTypeEnum parseMsgType(String requestParams) throws DocumentException {
         SAXReader saxReader = new SAXReader();
         Document doc = saxReader.read(new ByteArrayInputStream(requestParams.getBytes(StandardCharsets.UTF_8)));
         Element root = doc.getRootElement();

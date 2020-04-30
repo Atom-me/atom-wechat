@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class AccessTokenResp implements Serializable {
 
     /**
-     * 获取到的凭证.
+     * 获取到的接口访问凭证.
      */
     @JsonProperty(value = "access_token")
     private String accessToken;

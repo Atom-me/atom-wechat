@@ -23,6 +23,12 @@ public class ReqMsgHandlerFactory implements ApplicationContextAware {
         beansOfType.forEach((k, v) -> handlerMap.put(v.getMsgType(), v));
     }
 
+    /**
+     * 获取消息处理器
+     *
+     * @param msgTypeEnum
+     * @return
+     */
     public ReqMsgHandler getReqMsgHandler(ReqMsgTypeEnum msgTypeEnum) {
         return handlerMap.get(msgTypeEnum);
     }
