@@ -42,11 +42,11 @@ public class BlackListController {
     @RequestMapping("getBlackList")
     public ResponseEntity<List<Subscriber>> getBlackList() {
         AccessTokenResp accessTokenResp = accessTokenHelper.accessToken();
-        String get_black_list_url = WeChatConstant.GET_BLACK_LIST_URL.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
+        String getBlackListUrl = WeChatConstant.GET_BLACK_LIST_URL.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
         //当 begin_openid 为空时，默认从开头拉取。
         Map<String, String> param = new HashMap<>(1);
         param.put("begin_openid", "");
-        BlackList blackList = restTemplate.postForObject(get_black_list_url, param, BlackList.class);
+        BlackList blackList = restTemplate.postForObject(getBlackListUrl, param, BlackList.class);
         log.error("==================================");
         log.error(blackList.toString());
         List<Subscriber> weChatUserInfoList = Lists.newArrayList();
