@@ -1,7 +1,7 @@
 package com.atom.atomwechat.helper;
 
 import com.atom.atomwechat.constant.WeChatConstant;
-import com.atom.atomwechat.model.fans.FansInfo;
+import com.atom.atomwechat.model.fans.Subscriber;
 import com.atom.atomwechat.model.fans.FansList;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -28,10 +28,10 @@ public class FansHelper {
         return fansLis;
     }
 
-    public FansInfo info(String openId) {
-        FansInfo fansInfo = restTemplate.getForObject(WeChatConstant.FANS_INFO_URL, FansInfo.class, accessTokenHelper.accessToken().getAccessToken(), openId);
-        log.info(fansInfo.toString());
-        return fansInfo;
+    public Subscriber info(String openId) {
+        Subscriber subscriber = restTemplate.getForObject(WeChatConstant.FANS_INFO_URL, Subscriber.class, accessTokenHelper.accessToken().getAccessToken(), openId);
+        log.info(subscriber.toString());
+        return subscriber;
     }
 
 }

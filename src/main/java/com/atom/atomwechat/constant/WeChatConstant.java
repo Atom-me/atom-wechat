@@ -59,4 +59,19 @@ public interface WeChatConstant {
      * 长链接转短链接
      */
     String SHORT_URL = "https://api.weixin.qq.com/cgi-bin/shorturl?access_token=ACCESS_TOKEN";
+
+    /**
+     * 获取公众号的黑名单列表
+     */
+    String GET_BLACK_LIST_URL = "https://api.weixin.qq.com/cgi-bin/tags/members/getblacklist?access_token=ACCESS_TOKEN";
+
+    /**
+     * 批量拉黑用户
+     */
+    String BATCH_BLACK_LIST = "https://api.weixin.qq.com/cgi-bin/tags/members/batchblacklist?access_token=ACCESS_TOKEN";
+
+    /**
+     * 取消拉黑用户
+     */
+    String BATCH_UN_BLACK_LIST = "https://api.weixin.qq.com/cgi-bin/tags/members/batchunblacklist?access_token=ACCESS_TOKEN";
 }

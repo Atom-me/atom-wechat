@@ -1,7 +1,7 @@
 package com.atom.atomwechat.controller;
 
 import com.atom.atomwechat.helper.FansHelper;
-import com.atom.atomwechat.model.fans.FansInfo;
+import com.atom.atomwechat.model.fans.Subscriber;
 import com.atom.atomwechat.model.fans.FansList;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,12 +28,12 @@ public class FansController {
     }
 
     @GetMapping("fansinfos")
-    public List<FansInfo> fansInfoList() {
-        List<FansInfo> fansInfos = new ArrayList<>();
+    public List<Subscriber> fansInfoList() {
+        List<Subscriber> subscribers = new ArrayList<>();
         fansHelper.list().getData().getOpenId().forEach(openid -> {
-            FansInfo info = fansHelper.info(openid);
-            fansInfos.add(info);
+            Subscriber info = fansHelper.info(openid);
+            subscribers.add(info);
         });
-        return fansInfos;
+        return subscribers;
     }
 }

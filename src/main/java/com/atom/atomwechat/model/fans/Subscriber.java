@@ -29,7 +29,7 @@ import java.util.List;
  * @author atom
  */
 @Data
-public class FansInfo {
+public class Subscriber {
     /**
      * 用户是否订阅该公众号标识，值为0时，代表此用户没有关注该公众号，拉取不到其余信息。
      */

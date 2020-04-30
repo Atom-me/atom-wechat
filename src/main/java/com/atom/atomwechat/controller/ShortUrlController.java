@@ -1,6 +1,7 @@
 package com.atom.atomwechat.controller;
 
 import com.atom.atomwechat.constant.WeChatConstant;
+import com.atom.atomwechat.helper.AccessTokenHelper;
 import com.atom.atomwechat.model.req.shorturl.ShortUrlReq;
 import com.atom.atomwechat.model.resp.AccessTokenResp;
 import com.atom.atomwechat.model.resp.ShortUrlResp;
@@ -24,14 +25,16 @@ import java.io.IOException;
 public class ShortUrlController {
 
     @Resource
+    private AccessTokenHelper accessTokenHelper;
+
+    @Resource
     private RestTemplate restTemplate;
 
     @PostMapping("/shortUrl")
     public ResponseEntity<ShortUrlResp> shortUrl(@RequestParam("longUrl") String longUrl) throws IOException {
 
         //get access_token
-        AccessTokenResp accessTokenResp = restTemplate.getForObject(WeChatConstant.ACCESS_TOKEN_URL, AccessTokenResp.class, WeChatConstant.APP_ID, WeChatConstant.APP_SECRET);
-
+        AccessTokenResp accessTokenResp = accessTokenHelper.accessToken();
         String url = WeChatConstant.SHORT_URL.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
         ShortUrlReq shortUrlReq = ShortUrlReq.builder()
                 .longUrl(longUrl)
