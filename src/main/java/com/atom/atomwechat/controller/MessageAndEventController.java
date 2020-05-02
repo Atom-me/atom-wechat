@@ -116,7 +116,28 @@ public class MessageAndEventController {
         List<Element> elements = root.elements();
         for (Element element : elements) {
             if ("MsgType".equals(element.getName())) {
-                return ReqMsgTypeEnum.lookup(element.getStringValue());
+
+                ReqMsgTypeEnum msgTypeEnum = ReqMsgTypeEnum.lookup(element.getStringValue());
+
+                // deal with Event Message.
+                if (ReqMsgTypeEnum.EVENT.equals(msgTypeEnum)) {
+                    // get type enum with event ?
+                    for (Element ele : elements) {
+                        if ("Event".equals(ele.getName())) {
+                            for (Element e : elements) {
+                                if ("EventKey".equals(e.getName())) {
+                                    msgTypeEnum = ReqMsgTypeEnum.matchEvent(ele.getStringValue(),e.getStringValue());
+                                }
+                            }
+
+
+                            break;
+                        }
+                    }
+                }
+
+                return msgTypeEnum;
+
             }
         }
         return null;

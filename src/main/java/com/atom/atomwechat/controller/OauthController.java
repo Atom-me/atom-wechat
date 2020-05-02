@@ -56,7 +56,7 @@ public class OauthController {
 
         String url = StringUtils.replaceEach(AUTHORIZE_URL,
                 new String[]{"APPID", "REDIRECT_URI", "SCOPE", "STATE"},
-                new String[]{APP_ID, callbackUrl, SNSAPI_USERINFO, "anyStringYouWant"});
+                new String[]{APP_ID, callbackUrl, SNSAPI_BASE, "anyStringYouWant"});
 
         return "redirect:" + url;
     }

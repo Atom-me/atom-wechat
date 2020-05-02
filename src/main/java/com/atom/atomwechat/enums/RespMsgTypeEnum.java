@@ -3,6 +3,8 @@ package com.atom.atomwechat.enums;
 import lombok.Getter;
 
 /**
+ * 返回消息类型
+ *
  * @author atom
  */
 public enum RespMsgTypeEnum {
