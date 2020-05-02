@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class ReqVoiceMsgHandler implements ReqMsgHandler<ReqVoiceMessage> {
     @Override
     public String process(ReqVoiceMessage reqVoiceMessage) {
-        log.error("===========语音消息=============");
+        log.info("==========={}=============", ReqMsgTypeEnum.VOICE.getDesc());
         log.info(reqVoiceMessage.toString());
 
         return null;

@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 public class ReqImageMsgHandler implements ReqMsgHandler<ReqImageMessage> {
     @Override
     public String process(ReqImageMessage reqImageMessage) {
-        log.error("===========图片消息消息=============");
-        log.error(reqImageMessage.toString());
+        log.info("==========={}=============", ReqMsgTypeEnum.IMAGE.getDesc());
+        log.info(reqImageMessage.toString());
 
         return null;
     }

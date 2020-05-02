@@ -22,9 +22,7 @@ public class ReqLocationEventMsgHandler implements ReqMsgHandler<ReqLocationEven
 
     @Override
     public String process(ReqLocationEventMessage reqLocationEventMessage) {
-        log.error("==========={}=============", ReqMsgTypeEnum.EVENT_LOCATION.getDesc());
-//        String event = reqClickEventMessge.getEvent();
-//        String eventKey = reqClickEventMessge.getEventKey();
+        log.info("==========={}=============", ReqMsgTypeEnum.EVENT_LOCATION.getDesc());
 
         //todo process event response
         log.info(reqLocationEventMessage.toString());

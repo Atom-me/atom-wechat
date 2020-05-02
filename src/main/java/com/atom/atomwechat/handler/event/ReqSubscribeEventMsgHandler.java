@@ -20,9 +20,7 @@ public class ReqSubscribeEventMsgHandler implements ReqMsgHandler<ReqSubscribeEv
 
     @Override
     public String process(ReqSubscribeEventMessage reqSubscribeEventMessage) {
-        log.error("==========={}=============", ReqMsgTypeEnum.EVENT_SUBSCRIBE.getDesc());
-//        String event = reqClickEventMessge.getEvent();
-//        String eventKey = reqClickEventMessge.getEventKey();
+        log.info("==========={}=============", ReqMsgTypeEnum.EVENT_SUBSCRIBE.getDesc());
 
         //todo process event response
         log.info(reqSubscribeEventMessage.toString());

@@ -19,7 +19,7 @@ public class ReqLinkMsgHandler implements ReqMsgHandler<ReqLinkMessage> {
             log.debug("this is a debug message ");
         }
 
-        log.info("===========链接消息=============");
+        log.info("==========={}=============", ReqMsgTypeEnum.LINK.getDesc());
         log.info(reqLinkMessage.toString());
 
         return null;

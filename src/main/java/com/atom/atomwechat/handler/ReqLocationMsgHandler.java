@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class ReqLocationMsgHandler implements ReqMsgHandler<ReqLocationMessage> {
     @Override
     public String process(ReqLocationMessage reqLocationMessage) {
-        log.error("===========地理位置消息=============");
+        log.info("===========地理位置消息=============");
         log.info(reqLocationMessage.toString());
 
         return null;

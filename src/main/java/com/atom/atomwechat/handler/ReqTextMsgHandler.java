@@ -23,7 +23,7 @@ public class ReqTextMsgHandler implements ReqMsgHandler<ReqTextMessage> {
 
     @Override
     public String process(ReqTextMessage reqTextMessage) {
-        log.error("===========文本消息=============");
+        log.info("==========={}=============", ReqMsgTypeEnum.TEXT.getDesc());
         log.info(reqTextMessage.toString());
 
         String respXml = "<xml>\n" +

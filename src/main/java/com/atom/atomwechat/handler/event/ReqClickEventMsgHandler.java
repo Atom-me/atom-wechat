@@ -19,9 +19,7 @@ public class ReqClickEventMsgHandler implements ReqMsgHandler<ReqClickEventMessa
 
     @Override
     public String process(ReqClickEventMessage reqClickEventMessage) {
-        log.error("==========={}=============", ReqMsgTypeEnum.EVENT_CLICK.getDesc());
-//        String event = reqClickEventMessge.getEvent();
-//        String eventKey = reqClickEventMessge.getEventKey();
+        log.info("==========={}=============", ReqMsgTypeEnum.EVENT_CLICK.getDesc());
 
         //todo process event response
         log.info(reqClickEventMessage.toString());

@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 public class ReqShortVideoMsgHandler implements ReqMsgHandler<ReqShortVideoMessage> {
     @Override
     public String process(ReqShortVideoMessage reqShortVideoMessage) {
-        log.error("===========小视频消息消息=============");
-        log.error(reqShortVideoMessage.toString());
+        log.info("==========={}=============", ReqMsgTypeEnum.SHORT_VIDEO.getDesc());
+        log.info(reqShortVideoMessage.toString());
 
         return null;
     }

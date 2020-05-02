@@ -20,9 +20,7 @@ public class ReqUnsubscribeEventMsgHandler implements ReqMsgHandler<ReqUnsubscri
 
     @Override
     public String process(ReqUnsubscribeEventMessage reqUnsubscribeEventMessage) {
-        log.error("==========={}=============", ReqMsgTypeEnum.EVENT_UNSUBSCRIBE.getDesc());
-//        String event = reqClickEventMessge.getEvent();
-//        String eventKey = reqClickEventMessge.getEventKey();
+        log.info("==========={}=============", ReqMsgTypeEnum.EVENT_UNSUBSCRIBE.getDesc());
 
         //todo process event response
         log.info(reqUnsubscribeEventMessage.toString());
