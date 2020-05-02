@@ -9,10 +9,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
+ * 关注事件处理器
+ *
  * @author atom
  */
 @Component
-@MsgType(type = ReqMsgTypeEnum.EVENT_SUBSCRIBE, msgClass = ReqSubscribeEventMessage.class, desc = "关注事件")
+@MsgType(type = ReqMsgTypeEnum.EVENT_SUBSCRIBE, msgClass = ReqSubscribeEventMessage.class, desc = "关注事件处理器")
 @Slf4j
 public class ReqSubscribeEventMsgHandler implements ReqMsgHandler<ReqSubscribeEventMessage> {
 
