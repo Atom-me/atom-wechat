@@ -36,7 +36,7 @@ public interface WeChatConstant {
     String BASE_DOMAIN_URL = "http://atom.vipgz4.idcfengye.com";
 
     /**
-     * 通过code换取网页授权access_token
+     * 公众平台的API调用所需的access_token
      */
     String ACCESS_TOKEN_URL = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={1}&secret={2}";
 
@@ -74,4 +74,21 @@ public interface WeChatConstant {
      * 取消拉黑用户
      */
     String BATCH_UN_BLACK_LIST = "https://api.weixin.qq.com/cgi-bin/tags/members/batchunblacklist?access_token=ACCESS_TOKEN";
+
+    /**
+     * 微信网页授权
+     */
+    String AUTHORIZE_URL = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect";
+
+    /**
+     * 通过code换取网页授权access_token
+     * 这里通过code换取的是一个特殊的网页授权access_token,与基础支持中的access_token（该access_token用于调用其他接口）不同
+     */
+    String OAUTH2_ACCESS_TOKEN = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code";
+
+    /**
+     * 拉取用户信息(需scope为 snsapi_userinfo)
+     * ACCESS_TOKEN:网页授权接口调用凭证,注意：此access_token与基础支持的access_token不同
+     */
+    String OAUTH2_USER_INFO = "https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN";
 }

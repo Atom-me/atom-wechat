@@ -7,7 +7,7 @@ import lombok.Data;
  * @author Atom
  */
 @Data
-public class Oauth2AccessTokenResponse {
+public class Oauth2AccessTokenResp {
 
     /**
      * {"access_token":"32_c7MItPjyfyjpe3zvAg1Sqvkaye-SZCdtXNfg_KqvmyLgUIApapxOB2NVwRRK_Q3vUFXRwqO-iNb-1E8sNG7CbnTHByiBGBEXTq_VEkcZD3A",
