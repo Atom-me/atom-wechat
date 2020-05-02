@@ -66,7 +66,7 @@ public class MessageAndEventController {
     }
 
     /**
-     * 处理消息和事件
+     * 处理普通消息和事件推送
      *
      * @param request
      * @return
@@ -78,7 +78,6 @@ public class MessageAndEventController {
      */
     @PostMapping("/")
     public String processRequest(HttpServletRequest request) throws IOException, DocumentException, JAXBException {
-        // todo 解析消息和事件推送
         String requestParams = IOUtils.toString(request.getInputStream(), StandardCharsets.UTF_8);
         log.error(requestParams);
         ReqMsgTypeEnum reqMsgType = parseMsgType(requestParams);
@@ -126,7 +125,9 @@ public class MessageAndEventController {
                         if ("Event".equals(ele.getName())) {
                             for (Element e : elements) {
                                 if ("EventKey".equals(e.getName())) {
-                                    msgTypeEnum = ReqMsgTypeEnum.matchEvent(ele.getStringValue(),e.getStringValue());
+                                    msgTypeEnum = ReqMsgTypeEnum.matchEvent(ele.getStringValue(), e.getStringValue());
+                                } else {
+                                    msgTypeEnum = ReqMsgTypeEnum.matchEvent(ele.getStringValue(), "");
                                 }
                             }
 
