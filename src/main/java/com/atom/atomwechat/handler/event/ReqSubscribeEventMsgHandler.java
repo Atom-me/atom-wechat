@@ -8,19 +8,21 @@ import com.atom.atomwechat.model.req.event.ReqSubscribeEventMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import static com.atom.atomwechat.enums.ReqMsgTypeEnum.EVENT_SUBSCRIBE;
+
 /**
  * 关注事件处理器
  *
  * @author atom
  */
 @Component
-@MsgType(type = ReqMsgTypeEnum.EVENT_SUBSCRIBE, msgClass = ReqSubscribeEventMessage.class, desc = "关注事件处理器")
+@MsgType(type = EVENT_SUBSCRIBE, msgClass = ReqSubscribeEventMessage.class, desc = "关注事件处理器")
 @Slf4j
 public class ReqSubscribeEventMsgHandler implements ReqMsgHandler<ReqSubscribeEventMessage> {
 
     @Override
     public String process(ReqSubscribeEventMessage reqSubscribeEventMessage) {
-        log.info("==========={}=============", ReqMsgTypeEnum.EVENT_SUBSCRIBE.getDesc());
+        log.info("==========={}=============", EVENT_SUBSCRIBE.getDesc());
 
         //todo process event response
         log.info(reqSubscribeEventMessage.toString());
@@ -38,6 +40,6 @@ public class ReqSubscribeEventMsgHandler implements ReqMsgHandler<ReqSubscribeEv
 
     @Override
     public ReqMsgTypeEnum getMsgType() {
-        return ReqMsgTypeEnum.EVENT_SUBSCRIBE;
+        return EVENT_SUBSCRIBE;
     }
 }

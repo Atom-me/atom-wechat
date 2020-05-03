@@ -7,16 +7,20 @@ import com.atom.atomwechat.model.req.normal.ReqShortVideoMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import static com.atom.atomwechat.enums.ReqMsgTypeEnum.SHORT_VIDEO;
+
 /**
+ * 短视频消息处理器
+ *
  * @author atom
  */
 @Component
-@MsgType(type = ReqMsgTypeEnum.SHORT_VIDEO, msgClass = ReqShortVideoMessage.class)
+@MsgType(type = SHORT_VIDEO, msgClass = ReqShortVideoMessage.class, desc = "短视频消息处理器")
 @Slf4j
 public class ReqShortVideoMsgHandler implements ReqMsgHandler<ReqShortVideoMessage> {
     @Override
     public String process(ReqShortVideoMessage reqShortVideoMessage) {
-        log.info("==========={}=============", ReqMsgTypeEnum.SHORT_VIDEO.getDesc());
+        log.info("==========={}=============", SHORT_VIDEO.getDesc());
         log.info(reqShortVideoMessage.toString());
 
         return null;
@@ -24,6 +28,6 @@ public class ReqShortVideoMsgHandler implements ReqMsgHandler<ReqShortVideoMessa
 
     @Override
     public ReqMsgTypeEnum getMsgType() {
-        return ReqMsgTypeEnum.SHORT_VIDEO;
+        return SHORT_VIDEO;
     }
 }

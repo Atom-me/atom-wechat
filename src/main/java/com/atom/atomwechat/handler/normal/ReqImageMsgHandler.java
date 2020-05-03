@@ -7,16 +7,20 @@ import com.atom.atomwechat.model.req.normal.ReqImageMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import static com.atom.atomwechat.enums.ReqMsgTypeEnum.IMAGE;
+
 /**
+ * 图片消息处理器
+ *
  * @author atom
  */
 @Component
-@MsgType(type = ReqMsgTypeEnum.IMAGE, msgClass = ReqImageMessage.class)
+@MsgType(type = IMAGE, msgClass = ReqImageMessage.class, desc = "图片消息处理器")
 @Slf4j
 public class ReqImageMsgHandler implements ReqMsgHandler<ReqImageMessage> {
     @Override
     public String process(ReqImageMessage reqImageMessage) {
-        log.info("==========={}=============", ReqMsgTypeEnum.IMAGE.getDesc());
+        log.info("==========={}=============", IMAGE.getDesc());
         log.info(reqImageMessage.toString());
 
         return null;
@@ -24,6 +28,6 @@ public class ReqImageMsgHandler implements ReqMsgHandler<ReqImageMessage> {
 
     @Override
     public ReqMsgTypeEnum getMsgType() {
-        return ReqMsgTypeEnum.IMAGE;
+        return IMAGE;
     }
 }

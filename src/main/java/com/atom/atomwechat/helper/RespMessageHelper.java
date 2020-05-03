@@ -6,6 +6,7 @@ import com.atom.atomwechat.model.resp.Article;
 import com.atom.atomwechat.model.resp.Item;
 import com.atom.atomwechat.model.resp.MediaArticle;
 import com.atom.atomwechat.model.resp.Text;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import javax.xml.bind.JAXBContext;
@@ -17,6 +18,7 @@ import java.util.Arrays;
  * @author atom
  */
 @Component
+@Slf4j
 public class RespMessageHelper {
 
     /**
@@ -26,8 +28,6 @@ public class RespMessageHelper {
      * @return
      */
     public String buildMediaArticleMsg(ReqTextMessage reqTextMessage) {
-
-
         MediaArticle mediaArticle = new MediaArticle();
         mediaArticle.setFromUserName(reqTextMessage.getToUserName());
         mediaArticle.setToUserName(reqTextMessage.getFromUserName());
@@ -36,19 +36,24 @@ public class RespMessageHelper {
 
         Article article = new Article();
         Item item = new Item();
-        item.setDescription("图文消息描述啊啊啊");
-        item.setPicUrl("http://mmbiz.qpic.cn/mmbiz_jpg/XdgiaNfVTSqmOvSu2OiaOTxJM9DEXZeiae7YpPteiaWEvlGjoNuZbicbeXF5U5eckyT7VtUYpVBAQGtNzrA2NGorlHQ/0");
-        item.setTitle("图文消息标题零零落落");
-        item.setUrl("http://www.baidu.com");
+        item.setDescription("图文消息示例描述");
+        item.setPicUrl("http://mmbiz.qpic.cn/mmbiz_jpg/XdgiaNfVTSqlU253cedtuGmFCqQhibwaXA1JfupiaQpOYsCpP4eibJD9MVR5PQElwoRdn6KHSia3r2VBSllibyibqkgBQ/0");
+        item.setTitle("图文消息示例标题");
+        item.setUrl("http://cn.bing.com/");
 
         article.setItem(Arrays.asList(item));
         mediaArticle.setArticles(Arrays.asList(article));
         mediaArticle.setArticleCount(article.getItem().size());
 
         return transferObjectToXml(mediaArticle);
-
     }
 
+    /**
+     * 构建文本消息
+     *
+     * @param reqTextMessage
+     * @return
+     */
     public String buildTextMsg(ReqTextMessage reqTextMessage) {
         Text text = new Text();
         text.setContent("content");
@@ -59,6 +64,12 @@ public class RespMessageHelper {
         return transferObjectToXml(reqTextMessage);
     }
 
+    /**
+     * transferObjectToXml
+     *
+     * @param object
+     * @return
+     */
     private String transferObjectToXml(Object object) {
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(object.getClass());
@@ -71,11 +82,9 @@ public class RespMessageHelper {
             StringWriter sw = new StringWriter();
             //Write XML to StringWriter
             jaxbMarshaller.marshal(object, sw);
-            String xmlContent = sw.toString();
-            System.out.println(xmlContent);
-            return xmlContent;
+            return sw.toString();
         } catch (Exception e) {
-            throw new RuntimeException("object transfer to xml exception >>>>");
+            throw new RuntimeException("object transfer to xml exception.");
         }
     }
 

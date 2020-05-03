@@ -12,13 +12,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * <xml><ToUserName><![CDATA[gh_7833711ad955]]></ToUserName>
  * <FromUserName><![CDATA[oSu9iw5mdd3btzDXXZwYRViaYttI]]></FromUserName>
- * <CreateTime>1584958741</CreateTime>
+ * <CreateTime>1588496881</CreateTime>
  * <MsgType><![CDATA[event]]></MsgType>
- * <Event><![CDATA[CLICK]]></Event>
- * <EventKey><![CDATA[click_001]]></EventKey>
+ * <Event><![CDATA[VIEW]]></Event>
+ * <EventKey><![CDATA[https://search.bilibili.com/all?keyword=java&from_source=nav_search_new]]></EventKey>
+ * <MenuId>426127800</MenuId>
  * </xml>
  * <p>
- * 接收click事件推送
+ * 接收View事件推送
  *
  * @author Atom
  */
@@ -27,7 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @AllArgsConstructor
 @XmlRootElement(name = "xml")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ReqClickEventMessage {
+public class ReqViewEventMessage {
     /**
      * 开发者微信号
      */
@@ -49,13 +50,19 @@ public class ReqClickEventMessage {
     @XmlElement(name = "MsgType")
     private String msgType;
     /**
-     * 事件类型，VIEW
+     * 事件类型
      */
     @XmlElement(name = "Event")
     private String event;
     /**
-     * 事件KEY值，设置的跳转URL
+     * 事件KEY值
      */
     @XmlElement(name = "EventKey")
     private String eventKey;
+
+    /**
+     * 菜单ID
+     */
+    @XmlElement(name = "MenuId")
+    private Long menuId;
 }

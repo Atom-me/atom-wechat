@@ -3,7 +3,9 @@ package com.atom.atomwechat.handler;
 import com.atom.atomwechat.enums.ReqMsgTypeEnum;
 
 /**
- * @param <T>
+ * 消息事件处理器
+ *
+ * @param <T> messageBean
  * @author Atom
  */
 public interface ReqMsgHandler<T> {

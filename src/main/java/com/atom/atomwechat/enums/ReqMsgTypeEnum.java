@@ -50,6 +50,10 @@ public enum ReqMsgTypeEnum {
      * 点击菜单拉取消息时的事件推送
      */
     EVENT_CLICK("event", "CLICK", "", "点击菜单拉取消息时的事件推送"),
+    /**
+     * 点击菜单跳转链接时的事件推送
+     */
+    EVENT_VIEW("event", "VIEW", "", "点击菜单跳转链接时的事件推送"),
     ;
 
     /**

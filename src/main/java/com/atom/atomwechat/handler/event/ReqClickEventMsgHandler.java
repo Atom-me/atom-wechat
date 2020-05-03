@@ -8,17 +8,21 @@ import com.atom.atomwechat.model.req.event.ReqClickEventMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import static com.atom.atomwechat.enums.ReqMsgTypeEnum.EVENT_CLICK;
+
 /**
+ * 点击菜单拉取消息时的事件推送消息处理器
+ *
  * @author atom
  */
 @Component
-@MsgType(type = ReqMsgTypeEnum.EVENT_CLICK, msgClass = ReqClickEventMessage.class, desc = "点击菜单拉取消息时的事件推送消息处理器")
+@MsgType(type = EVENT_CLICK, msgClass = ReqClickEventMessage.class, desc = "点击菜单拉取消息时的事件推送消息处理器")
 @Slf4j
 public class ReqClickEventMsgHandler implements ReqMsgHandler<ReqClickEventMessage> {
 
     @Override
     public String process(ReqClickEventMessage reqClickEventMessage) {
-        log.info("==========={}=============", ReqMsgTypeEnum.EVENT_CLICK.getDesc());
+        log.info("==========={}=============", EVENT_CLICK.getDesc());
 
         //todo process event response
         log.info(reqClickEventMessage.toString());
@@ -36,6 +40,6 @@ public class ReqClickEventMsgHandler implements ReqMsgHandler<ReqClickEventMessa
 
     @Override
     public ReqMsgTypeEnum getMsgType() {
-        return ReqMsgTypeEnum.EVENT_CLICK;
+        return EVENT_CLICK;
     }
 }

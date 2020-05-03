@@ -7,16 +7,20 @@ import com.atom.atomwechat.model.req.normal.ReqVoiceMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import static com.atom.atomwechat.enums.ReqMsgTypeEnum.VOICE;
+
 /**
+ * 语音消息处理器
+ *
  * @author atom
  */
-@MsgType(type = ReqMsgTypeEnum.VOICE, msgClass = ReqVoiceMessage.class)
+@MsgType(type = VOICE, msgClass = ReqVoiceMessage.class, desc = "语音消息处理器")
 @Component
 @Slf4j
 public class ReqVoiceMsgHandler implements ReqMsgHandler<ReqVoiceMessage> {
     @Override
     public String process(ReqVoiceMessage reqVoiceMessage) {
-        log.info("==========={}=============", ReqMsgTypeEnum.VOICE.getDesc());
+        log.info("==========={}=============", VOICE.getDesc());
         log.info(reqVoiceMessage.toString());
 
         return null;
@@ -24,6 +28,6 @@ public class ReqVoiceMsgHandler implements ReqMsgHandler<ReqVoiceMessage> {
 
     @Override
     public ReqMsgTypeEnum getMsgType() {
-        return ReqMsgTypeEnum.VOICE;
+        return VOICE;
     }
 }

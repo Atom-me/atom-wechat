@@ -7,10 +7,14 @@ import com.atom.atomwechat.model.req.normal.ReqLocationMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import static com.atom.atomwechat.enums.ReqMsgTypeEnum.LOCATION;
+
 /**
+ * 地理位置消息处理器
+ *
  * @author atom
  */
-@MsgType(type = ReqMsgTypeEnum.LOCATION, msgClass = ReqLocationMessage.class)
+@MsgType(type = LOCATION, msgClass = ReqLocationMessage.class, desc = "地理位置消息处理器")
 @Component
 @Slf4j
 public class ReqLocationMsgHandler implements ReqMsgHandler<ReqLocationMessage> {
@@ -24,6 +28,6 @@ public class ReqLocationMsgHandler implements ReqMsgHandler<ReqLocationMessage> 
 
     @Override
     public ReqMsgTypeEnum getMsgType() {
-        return ReqMsgTypeEnum.LOCATION;
+        return LOCATION;
     }
 }

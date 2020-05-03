@@ -7,12 +7,16 @@ import com.atom.atomwechat.model.req.normal.ReqLinkMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import static com.atom.atomwechat.enums.ReqMsgTypeEnum.LINK;
+
 /**
+ * 链接消息处理器
+ *
  * @author atom
  */
 @Component
 @Slf4j
-@MsgType(type = ReqMsgTypeEnum.LINK, msgClass = ReqLinkMessage.class)
+@MsgType(type = LINK, msgClass = ReqLinkMessage.class, desc = "链接消息处理器")
 public class ReqLinkMsgHandler implements ReqMsgHandler<ReqLinkMessage> {
     @Override
     public String process(ReqLinkMessage reqLinkMessage) {
@@ -20,7 +24,7 @@ public class ReqLinkMsgHandler implements ReqMsgHandler<ReqLinkMessage> {
             log.debug("this is a debug message ");
         }
 
-        log.info("==========={}=============", ReqMsgTypeEnum.LINK.getDesc());
+        log.info("==========={}=============", LINK.getDesc());
         log.info(reqLinkMessage.toString());
 
         return null;
@@ -28,6 +32,6 @@ public class ReqLinkMsgHandler implements ReqMsgHandler<ReqLinkMessage> {
 
     @Override
     public ReqMsgTypeEnum getMsgType() {
-        return ReqMsgTypeEnum.LINK;
+        return LINK;
     }
 }

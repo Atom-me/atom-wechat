@@ -8,6 +8,8 @@ import com.atom.atomwechat.model.req.event.ReqLocationEventMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import static com.atom.atomwechat.enums.ReqMsgTypeEnum.EVENT_LOCATION;
+
 /**
  * 上报地理位置事件处理器
  * 用户同意上报地理位置后，每次进入公众号会话时，都会在进入时上报地理位置，
@@ -16,13 +18,13 @@ import org.springframework.stereotype.Component;
  * @author atom
  */
 @Component
-@MsgType(type = ReqMsgTypeEnum.EVENT_LOCATION, msgClass = ReqLocationEventMessage.class, desc = "上报地理位置事件处理器")
+@MsgType(type = EVENT_LOCATION, msgClass = ReqLocationEventMessage.class, desc = "上报地理位置事件处理器")
 @Slf4j
 public class ReqLocationEventMsgHandler implements ReqMsgHandler<ReqLocationEventMessage> {
 
     @Override
     public String process(ReqLocationEventMessage reqLocationEventMessage) {
-        log.info("==========={}=============", ReqMsgTypeEnum.EVENT_LOCATION.getDesc());
+        log.info("==========={}=============", EVENT_LOCATION.getDesc());
 
         //todo process event response
         log.info(reqLocationEventMessage.toString());
@@ -40,6 +42,6 @@ public class ReqLocationEventMsgHandler implements ReqMsgHandler<ReqLocationEven
 
     @Override
     public ReqMsgTypeEnum getMsgType() {
-        return ReqMsgTypeEnum.EVENT_LOCATION;
+        return EVENT_LOCATION;
     }
 }

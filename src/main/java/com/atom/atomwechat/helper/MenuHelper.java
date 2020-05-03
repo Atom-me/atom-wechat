@@ -16,6 +16,8 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 
+import static com.atom.atomwechat.constant.WeChatConstant.*;
+
 /**
  * 自定义菜单
  *
@@ -48,7 +50,7 @@ public class MenuHelper {
 
 
         ViewButton viewButton2 = new ViewButton();
-        viewButton2.setName("你喜欢的👙");
+        viewButton2.setName("美女👙");
         viewButton2.setType("view");
         viewButton2.setUrl("https://www.poco.cn/works/detail_id21268618");
 
@@ -65,7 +67,7 @@ public class MenuHelper {
 
     public String create() throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
-        AccessTokenResp accessTokenResp = restTemplate.getForObject(WeChatConstant.ACCESS_TOKEN_URL, AccessTokenResp.class, WeChatConstant.APP_ID, WeChatConstant.APP_SECRET);
+        AccessTokenResp accessTokenResp = restTemplate.getForObject(ACCESS_TOKEN_URL, AccessTokenResp.class, APP_ID, APP_SECRET);
 
         Menu menu = setupMenu();
 

@@ -10,11 +10,15 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
+import static com.atom.atomwechat.enums.ReqMsgTypeEnum.TEXT;
+
 /**
+ * 文本消息处理器
+ *
  * @author atom
  */
 @Component
-@MsgType(type = ReqMsgTypeEnum.TEXT, msgClass = ReqTextMessage.class, desc = "文本消息处理器")
+@MsgType(type = TEXT, msgClass = ReqTextMessage.class, desc = "文本消息处理器")
 @Slf4j
 public class ReqTextMsgHandler implements ReqMsgHandler<ReqTextMessage> {
 
@@ -23,7 +27,7 @@ public class ReqTextMsgHandler implements ReqMsgHandler<ReqTextMessage> {
 
     @Override
     public String process(ReqTextMessage reqTextMessage) {
-        log.info("==========={}=============", ReqMsgTypeEnum.TEXT.getDesc());
+        log.info("==========={}=============", TEXT.getDesc());
         log.info(reqTextMessage.toString());
 
         String respXml = "<xml>\n" +
@@ -44,6 +48,6 @@ public class ReqTextMsgHandler implements ReqMsgHandler<ReqTextMessage> {
 
     @Override
     public ReqMsgTypeEnum getMsgType() {
-        return ReqMsgTypeEnum.TEXT;
+        return TEXT;
     }
 }
