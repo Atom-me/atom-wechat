@@ -36,6 +36,6 @@ public class MessageBeanRegistor implements InitializingBean {
 
     private void registerMessageBean(MsgType msgType, MessageBeanContext messageBeanContext) {
         Class messageBeanClass = msgType.msgClass();
-        messageBeanContext.registerMessageBean(msgType.type(), messageBeanClass);
+        messageBeanContext.register(msgType.type(), messageBeanClass);
     }
 }

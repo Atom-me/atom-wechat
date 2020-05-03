@@ -11,7 +11,7 @@ import java.util.Collection;
 /**
  * 请求消息类型
  *
- * @author atom
+ * @author Atom
  */
 public enum ReqMsgTypeEnum {
     /**
@@ -27,10 +27,8 @@ public enum ReqMsgTypeEnum {
     SHORT_VIDEO("shortvideo", "", "", "小视频消息"),
     LOCATION("location", "", "", "地理位置消息"),
     LINK("link", "", "", "链接消息"),
-    EVENT("event", "", "", "事件通知"),
-
     /*****************************************EVENT*****************************************/
-
+    EVENT("event", "", "", "事件通知"),
     EVENT_SUBSCRIBE("event", "subscribe", "", "关注事件"),
     EVENT_UNSUBSCRIBE("event", "unsubscribe", "", "取消关注事件"),
     /**
@@ -39,14 +37,12 @@ public enum ReqMsgTypeEnum {
      * EventKey	事件KEY值，qrscene_为前缀，后面为二维码的参数值
      */
     EVENT_SUBSCRIBE_QRSCENE_("event", "subscribe", "qrscene_", " 用户未关注时，进行关注后的事件推送"),
-
     /**
      * 扫描带参数二维码事件
      * 用户已关注时的事件推送
      * EventKey	事件KEY值，是一个32位无符号整数，即创建二维码时的二维码scene_id
      */
     EVENT_SCAN("event", "SCAN", "", "用户已关注时的事件推送"),
-
     EVENT_LOCATION("event", "LOCATION", "", "上报地理位置事件"),
     /**
      * 自定义菜单事件
@@ -103,15 +99,15 @@ public enum ReqMsgTypeEnum {
     public static ReqMsgTypeEnum matchEvent(String event, String eventKey) {
 
         Collection<ReqMsgTypeEnum> reqMsgTypeEnums = eventMap.get(event);
+
         if (reqMsgTypeEnums.size() == 1) {
             return reqMsgTypeEnums.iterator().next();
         }
 
         for (ReqMsgTypeEnum reqMsgTypeEnum : reqMsgTypeEnums) {
-            if (StringUtils.equals(eventKey, reqMsgTypeEnum.getEventKey())) {
-                return reqMsgTypeEnum;
-            }
             if (StringUtils.isNotBlank(reqMsgTypeEnum.getEventKey()) && eventKey.startsWith(reqMsgTypeEnum.getEventKey())) {
+                return reqMsgTypeEnum;
+            } else if (StringUtils.isBlank(eventKey)) {
                 return reqMsgTypeEnum;
             }
         }

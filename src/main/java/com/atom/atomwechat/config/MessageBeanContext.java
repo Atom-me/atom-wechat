@@ -15,11 +15,11 @@ public class MessageBeanContext {
 
     private ConcurrentHashMap<ReqMsgTypeEnum, Class> messageBeanMap;
 
-    public void registerMessageBean(ReqMsgTypeEnum type, Class messageBeanClass) {
+    public void register(ReqMsgTypeEnum msgType, Class messageBeanClass) {
         if (CollectionUtils.isEmpty(messageBeanMap)) {
             messageBeanMap = new ConcurrentHashMap<>(20);
         }
-        messageBeanMap.put(type, messageBeanClass);
+        messageBeanMap.put(msgType, messageBeanClass);
     }
 
     public Class getMessageBeanClass(ReqMsgTypeEnum reqMsgType) {
