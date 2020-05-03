@@ -5,7 +5,7 @@ import lombok.Getter;
 /**
  * 返回消息类型
  *
- * @author atom
+ * @author Atom
  */
 public enum RespMsgTypeEnum {
     /**

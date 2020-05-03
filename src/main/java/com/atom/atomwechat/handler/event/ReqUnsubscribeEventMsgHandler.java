@@ -13,7 +13,7 @@ import static com.atom.atomwechat.enums.ReqMsgTypeEnum.EVENT_UNSUBSCRIBE;
 /**
  * 取消订阅 无法再向用户推送消息
  *
- * @author atom
+ * @author Atom
  */
 @Component
 @MsgType(type = EVENT_UNSUBSCRIBE, msgClass = ReqUnsubscribeEventMessage.class, desc = "取消订阅事件处理器")

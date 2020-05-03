@@ -56,12 +56,12 @@ public class ReqLocationMessage {
      * 地理位置维度
      */
     @XmlElement(name = "Location_X")
-    private String location_X;
+    private String locationX;
     /**
      * 地理位置经度
      */
     @XmlElement(name = "Location_Y")
-    private String location_Y;
+    private String locationY;
     /**
      * 地图缩放大小
      */

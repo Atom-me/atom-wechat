@@ -68,13 +68,12 @@ public class MessageAndEventController {
      * @param request
      * @return
      * @throws IOException
-     * @throws DocumentException
      * @throws JAXBException
      * @throws SAXException
      * @throws ParserConfigurationException
      */
     @PostMapping("/")
-    public String processRequest(HttpServletRequest request) throws IOException, DocumentException, JAXBException {
+    public String processRequest(HttpServletRequest request) throws IOException, JAXBException {
         String requestParams = IOUtils.toString(request.getInputStream(), StandardCharsets.UTF_8);
         log.info(requestParams);
         ReqMsgTypeEnum reqMsgType = parseMsgType(requestParams);

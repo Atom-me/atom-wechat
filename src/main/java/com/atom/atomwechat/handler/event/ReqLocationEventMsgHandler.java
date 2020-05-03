@@ -15,7 +15,7 @@ import static com.atom.atomwechat.enums.ReqMsgTypeEnum.EVENT_LOCATION;
  * 用户同意上报地理位置后，每次进入公众号会话时，都会在进入时上报地理位置，
  * 或在进入会话后每5秒上报一次地理位置，公众号可以在公众平台网站中修改以上设置。
  *
- * @author atom
+ * @author Atom
  */
 @Component
 @MsgType(type = EVENT_LOCATION, msgClass = ReqLocationEventMessage.class, desc = "上报地理位置事件处理器")

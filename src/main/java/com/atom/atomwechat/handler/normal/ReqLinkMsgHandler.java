@@ -12,7 +12,7 @@ import static com.atom.atomwechat.enums.ReqMsgTypeEnum.LINK;
 /**
  * 链接消息处理器
  *
- * @author atom
+ * @author Atom
  */
 @Component
 @Slf4j

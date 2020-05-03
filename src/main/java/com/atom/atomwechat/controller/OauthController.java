@@ -12,8 +12,6 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 import static com.atom.atomwechat.constant.WeChatConstant.*;
 
@@ -41,12 +39,9 @@ public class OauthController {
      * 1. response.sendRedirect(url);
      * 2. return new ModelAndView(new RedirectView(url));
      * 3. return "redirect:" + url;
-     *
-     * @param response
-     * @throws IOException
      */
     @GetMapping("authorize")
-    public String authorize(HttpServletResponse response) throws IOException {
+    public String authorize() {
 
         /**
          * 授权后重定向的回调链接地址， 请使用 urlEncode 对链接进行处理

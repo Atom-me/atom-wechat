@@ -13,7 +13,7 @@ import static com.atom.atomwechat.enums.ReqMsgTypeEnum.EVENT_CLICK;
 /**
  * 点击菜单拉取消息时的事件推送消息处理器
  *
- * @author atom
+ * @author Atom
  */
 @Component
 @MsgType(type = EVENT_CLICK, msgClass = ReqClickEventMessage.class, desc = "点击菜单拉取消息时的事件推送消息处理器")

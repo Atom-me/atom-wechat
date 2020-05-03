@@ -12,7 +12,7 @@ import static com.atom.atomwechat.enums.ReqMsgTypeEnum.SHORT_VIDEO;
 /**
  * 短视频消息处理器
  *
- * @author atom
+ * @author Atom
  */
 @Component
 @MsgType(type = SHORT_VIDEO, msgClass = ReqShortVideoMessage.class, desc = "短视频消息处理器")

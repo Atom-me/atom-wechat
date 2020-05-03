@@ -12,7 +12,7 @@ import static com.atom.atomwechat.enums.ReqMsgTypeEnum.LOCATION;
 /**
  * 地理位置消息处理器
  *
- * @author atom
+ * @author Atom
  */
 @MsgType(type = LOCATION, msgClass = ReqLocationMessage.class, desc = "地理位置消息处理器")
 @Component

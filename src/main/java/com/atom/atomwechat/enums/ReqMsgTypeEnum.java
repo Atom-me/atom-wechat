@@ -44,6 +44,7 @@ public enum ReqMsgTypeEnum {
      */
     EVENT_SCAN("event", "SCAN", "", "用户已关注时的事件推送"),
     EVENT_LOCATION("event", "LOCATION", "", "上报地理位置事件"),
+    EVENT_LOCATION_SELECT("event", "location_select", "", "发送地理位置消息事件"),
     /**
      * 自定义菜单事件
      * 用户点击自定义菜单后，微信会把点击事件推送给开发者，请注意，点击菜单弹出子菜单，不会产生上报。
@@ -116,7 +117,7 @@ public enum ReqMsgTypeEnum {
             }
         }
 
-        throw new IllegalStateException("非法事件消息类型>>>");
+        throw new IllegalStateException("非法事件消息类型");
     }
 
 

@@ -12,7 +12,7 @@ import static com.atom.atomwechat.enums.ReqMsgTypeEnum.IMAGE;
 /**
  * 图片消息处理器
  *
- * @author atom
+ * @author Atom
  */
 @Component
 @MsgType(type = IMAGE, msgClass = ReqImageMessage.class, desc = "图片消息处理器")

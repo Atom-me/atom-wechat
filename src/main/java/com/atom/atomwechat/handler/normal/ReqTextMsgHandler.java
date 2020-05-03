@@ -15,7 +15,7 @@ import static com.atom.atomwechat.enums.ReqMsgTypeEnum.TEXT;
 /**
  * 文本消息处理器
  *
- * @author atom
+ * @author Atom
  */
 @Component
 @MsgType(type = TEXT, msgClass = ReqTextMessage.class, desc = "文本消息处理器")

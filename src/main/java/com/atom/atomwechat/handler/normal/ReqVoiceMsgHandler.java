@@ -12,7 +12,7 @@ import static com.atom.atomwechat.enums.ReqMsgTypeEnum.VOICE;
 /**
  * 语音消息处理器
  *
- * @author atom
+ * @author Atom
  */
 @MsgType(type = VOICE, msgClass = ReqVoiceMessage.class, desc = "语音消息处理器")
 @Component

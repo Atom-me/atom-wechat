@@ -1,6 +1,7 @@
 package com.atom.atomwechat.helper;
 
 import com.atom.atomwechat.constant.WeChatConstant;
+import com.atom.atomwechat.enums.ButtonTypeEnum;
 import com.atom.atomwechat.model.menu.Button;
 import com.atom.atomwechat.model.menu.ClickButton;
 import com.atom.atomwechat.model.menu.Menu;
@@ -30,28 +31,28 @@ public class MenuHelper {
         Menu menu = new Menu();
         ClickButton clickButton = new ClickButton();
         clickButton.setName("公司地址");
-        clickButton.setType("click");
+        clickButton.setType(ButtonTypeEnum.CLICK.getType());
         clickButton.setKey("click_001");
 
         ViewButton viewButton = new ViewButton();
         viewButton.setName("Java教程");
-        viewButton.setType("view");
+        viewButton.setType(ButtonTypeEnum.VIEW.getType());
         viewButton.setUrl("https://search.bilibili.com/all?keyword=java&from_source=nav_search_new");
 
         ClickButton clickButton2 = new ClickButton();
         clickButton2.setName("扫描二维码");
-        clickButton2.setType("scancode_push");
+        clickButton2.setType(ButtonTypeEnum.SCANCODE_PUSH.getType());
         clickButton2.setKey("click_002");
 
         ClickButton clickButton3 = new ClickButton();
         clickButton3.setName("发送位置");
-        clickButton3.setType("location_select");
+        clickButton3.setType(ButtonTypeEnum.LOCATION_SELECT.getType());
         clickButton3.setKey("click_003");
 
 
         ViewButton viewButton2 = new ViewButton();
         viewButton2.setName("美女👙");
-        viewButton2.setType("view");
+        viewButton2.setType(ButtonTypeEnum.VIEW.getType());
         viewButton2.setUrl("https://www.poco.cn/works/detail_id21268618");
 
 
@@ -73,7 +74,7 @@ public class MenuHelper {
 
         ObjectMapper mapper = new ObjectMapper();
         String menuJsonString = mapper.writeValueAsString(menu);
-        String createMenuUrl = WeChatConstant.MENU_CREATE_URL.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
+        String createMenuUrl = MENU_CREATE_URL.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);

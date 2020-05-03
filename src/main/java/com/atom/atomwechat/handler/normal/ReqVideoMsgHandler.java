@@ -12,7 +12,7 @@ import static com.atom.atomwechat.enums.ReqMsgTypeEnum.VIDEO;
 /**
  * 视频消息处理器
  *
- * @author atom
+ * @author Atom
  */
 @Component
 @MsgType(type = VIDEO, msgClass = ReqVideoMessage.class, desc = "视频消息处理器")

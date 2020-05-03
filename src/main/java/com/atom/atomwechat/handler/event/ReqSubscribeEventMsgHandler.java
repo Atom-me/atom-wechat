@@ -13,7 +13,7 @@ import static com.atom.atomwechat.enums.ReqMsgTypeEnum.EVENT_SUBSCRIBE;
 /**
  * 关注事件处理器
  *
- * @author atom
+ * @author Atom
  */
 @Component
 @MsgType(type = EVENT_SUBSCRIBE, msgClass = ReqSubscribeEventMessage.class, desc = "关注事件处理器")
