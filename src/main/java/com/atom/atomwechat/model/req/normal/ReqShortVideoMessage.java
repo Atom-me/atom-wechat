@@ -1,4 +1,4 @@
-package com.atom.atomwechat.model.req;
+package com.atom.atomwechat.model.req.normal;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,59 +13,53 @@ import javax.xml.bind.annotation.XmlRootElement;
  * <xml>
  * <ToUserName><![CDATA[toUser]]></ToUserName>
  * <FromUserName><![CDATA[fromUser]]></FromUserName>
- * <CreateTime>1351776360</CreateTime>
- * <MsgType><![CDATA[link]]></MsgType>
- * <Title><![CDATA[公众平台官网链接]]></Title>
- * <Description><![CDATA[公众平台官网链接]]></Description>
- * <Url><![CDATA[url]]></Url>
+ * <CreateTime>1357290913</CreateTime>
+ * <MsgType><![CDATA[shortvideo]]></MsgType>
+ * <MediaId><![CDATA[media_id]]></MediaId>
+ * <ThumbMediaId><![CDATA[thumb_media_id]]></ThumbMediaId>
  * <MsgId>1234567890123456</MsgId>
  * </xml>
  * <p>
- * 接收链接消息
+ * 接收小视频消息
  *
- * @author atom
+ * @author Atom
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @XmlRootElement(name = "xml")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ReqLinkMessage {
+public class ReqShortVideoMessage {
     /**
-     * 接收方微信号
+     * 开发者微信号
      */
     @XmlElement(name = "ToUserName")
     private String toUserName;
     /**
-     * 发送方微信号，若为普通用户，则是一个OpenID
+     * 发送方帐号（一个OpenID）
      */
     @XmlElement(name = "FromUserName")
     private String fromUserName;
     /**
-     * 消息创建时间
+     * 消息创建时间 （整型）
      */
     @XmlElement(name = "CreateTime")
     private String createTime;
     /**
-     * 消息类型，链接为link
+     * 小视频为shortvideo
      */
     @XmlElement(name = "MsgType")
     private String msgType;
     /**
-     * 消息标题
+     * 视频消息媒体id，可以调用获取临时素材接口拉取数据。
      */
-    @XmlElement(name = "Title")
-    private String title;
+    @XmlElement(name = "MediaId")
+    private String mediaId;
     /**
-     * 消息描述
+     * 视频消息缩略图的媒体id，可以调用获取临时素材接口拉取数据。
      */
-    @XmlElement(name = "Description")
-    private String description;
-    /**
-     * 消息链接
-     */
-    @XmlElement(name = "Url")
-    private String url;
+    @XmlElement(name = "ThumbMediaId")
+    private String thumbMediaId;
     /**
      * 消息id，64位整型
      */

@@ -6,7 +6,6 @@ import com.atom.atomwechat.enums.ReqMsgTypeEnum;
 import com.atom.atomwechat.handler.ReqMsgHandler;
 import com.atom.atomwechat.model.req.event.ReqClickEventMessage;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.stereotype.Component;
 
 /**

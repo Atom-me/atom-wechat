@@ -5,7 +5,7 @@ import com.atom.atomwechat.enums.ReqMsgTypeEnum;
 import java.lang.annotation.*;
 
 /**
- * @author atom
+ * @author Atom
  */
 @Documented
 @Target(ElementType.TYPE)

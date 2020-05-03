@@ -9,7 +9,7 @@ import java.io.Serializable;
 /**
  * get access_token .
  *
- * @author atom
+ * @author Atom
  */
 @Data
 public class AccessTokenResp implements Serializable {

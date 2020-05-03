@@ -12,7 +12,9 @@ import static com.atom.atomwechat.constant.WeChatConstant.FANS_INFO_URL;
 import static com.atom.atomwechat.constant.WeChatConstant.FANS_LIST_URL;
 
 /**
- * @author atom
+ * 粉丝，关注者
+ *
+ * @author Atom
  */
 @Component
 @Slf4j

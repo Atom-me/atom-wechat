@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @author atom
+ * @author Atom
  */
 @Component
 public class MessageBeanContext {

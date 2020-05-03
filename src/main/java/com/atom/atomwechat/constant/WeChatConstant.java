@@ -1,7 +1,7 @@
 package com.atom.atomwechat.constant;
 
 /**
- * @author atom
+ * @author Atom
  */
 public interface WeChatConstant {
 

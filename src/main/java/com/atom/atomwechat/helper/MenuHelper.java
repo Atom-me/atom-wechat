@@ -17,7 +17,9 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Arrays;
 
 /**
- * @author atom
+ * 自定义菜单
+ *
+ * @author Atom
  */
 @Slf4j
 public class MenuHelper {

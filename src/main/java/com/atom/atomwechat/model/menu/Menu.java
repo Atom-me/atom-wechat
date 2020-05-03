@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 自定义菜单
  *
- * @author atom
+ * @author Atom
  */
 @Data
 public class Menu {

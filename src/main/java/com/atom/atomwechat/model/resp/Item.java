@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * </item>
  * </Articles>
  * 回复图文消息 中的 图文消息信息
- * @author atom
+ * @author Atom
  */
 @Data
 @XmlRootElement

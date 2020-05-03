@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 import static com.atom.atomwechat.constant.WeChatConstant.*;
 
 /**
- * @author atom
+ * @author Atom
  */
 @Component
 @Slf4j

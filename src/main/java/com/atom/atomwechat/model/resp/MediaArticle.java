@@ -28,7 +28,7 @@ import java.util.List;
  * <p>
  * 回复图文消息
  *
- * @author atom
+ * @author Atom
  */
 @Data
 @XmlRootElement(name = "xml")

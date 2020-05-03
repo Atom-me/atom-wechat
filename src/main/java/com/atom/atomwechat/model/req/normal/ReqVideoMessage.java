@@ -1,4 +1,4 @@
-package com.atom.atomwechat.model.req;
+package com.atom.atomwechat.model.req.normal;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,26 +10,26 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * <xml><ToUserName><![CDATA[gh_7833711ad955]]></ToUserName>
- * <FromUserName><![CDATA[oSu9iw5mdd3btzDXXZwYRViaYttI]]></FromUserName>
- * <CreateTime>1584883740</CreateTime>
- * <MsgType><![CDATA[text]]></MsgType>
- * <Content><![CDATA[哦哦哦]]></Content>
- * <MsgId>22690078695293750</MsgId>
+ * <xml>
+ * <ToUserName><![CDATA[toUser]]></ToUserName>
+ * <FromUserName><![CDATA[fromUser]]></FromUserName>
+ * <CreateTime>1357290913</CreateTime>
+ * <MsgType><![CDATA[video]]></MsgType>
+ * <MediaId><![CDATA[media_id]]></MediaId>
+ * <ThumbMediaId><![CDATA[thumb_media_id]]></ThumbMediaId>
+ * <MsgId>1234567890123456</MsgId>
  * </xml>
- *
  * <p>
+ * 接收视频消息
  *
- * 接收文本消息
- *
- * @author atom
+ * @author Atom
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @XmlRootElement(name = "xml")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ReqTextMessage {
+public class ReqVideoMessage {
     /**
      * 开发者微信号
      */
@@ -44,17 +44,22 @@ public class ReqTextMessage {
      * 消息创建时间 （整型）
      */
     @XmlElement(name = "CreateTime")
-    private Long createTime;
+    private String createTime;
     /**
-     * 消息类型，文本为text
+     * 视频为video
      */
     @XmlElement(name = "MsgType")
     private String msgType;
     /**
-     * 文本消息内容
+     * 视频消息媒体id，可以调用获取临时素材接口拉取数据。
      */
-    @XmlElement(name = "Content")
-    private String content;
+    @XmlElement(name = "MediaId")
+    private String mediaId;
+    /**
+     * 视频消息缩略图的媒体id，可以调用多媒体文件下载接口拉取数据。
+     */
+    @XmlElement(name = "ThumbMediaId")
+    private String thumbMediaId;
     /**
      * 消息id，64位整型
      */
@@ -62,5 +67,3 @@ public class ReqTextMessage {
     private String msgId;
 
 }
-
-

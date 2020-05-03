@@ -1,4 +1,4 @@
-package com.atom.atomwechat.model.req;
+package com.atom.atomwechat.model.req.normal;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * <p>
  * 接收语音消息
  *
- * @author atom
+ * @author Atom
  */
 @Data
 @NoArgsConstructor

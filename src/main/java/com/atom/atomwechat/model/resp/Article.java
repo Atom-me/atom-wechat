@@ -13,7 +13,7 @@ import java.util.List;
  * <Url><![CDATA[url]]></Url>
  * </item>
  * </Articles>
- * @author atom
+ * @author Atom
  */
 @Data
 public class Article {

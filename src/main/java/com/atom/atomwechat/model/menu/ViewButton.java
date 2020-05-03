@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * @author atom
+ * @author Atom
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

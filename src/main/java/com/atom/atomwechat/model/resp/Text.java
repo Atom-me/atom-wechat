@@ -20,7 +20,7 @@ import java.security.PrivateKey;
  * <p>
  * 回复文本消息
  *
- * @author atom
+ * @author Atom
  */
 @Data
 @XmlRootElement(name = "xml")

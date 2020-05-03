@@ -34,7 +34,7 @@ import static com.atom.atomwechat.constant.WeChatConstant.TOKEN;
 /**
  * 消息和事件处理入口
  *
- * @author atom
+ * @author Atom
  */
 @RestController
 @Slf4j

@@ -1,7 +1,7 @@
 package com.atom.atomwechat.helper;
 
 import com.atom.atomwechat.enums.RespMsgTypeEnum;
-import com.atom.atomwechat.model.req.ReqTextMessage;
+import com.atom.atomwechat.model.req.normal.ReqTextMessage;
 import com.atom.atomwechat.model.resp.Article;
 import com.atom.atomwechat.model.resp.Item;
 import com.atom.atomwechat.model.resp.MediaArticle;
@@ -9,7 +9,6 @@ import com.atom.atomwechat.model.resp.Text;
 import org.springframework.stereotype.Component;
 
 import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import java.io.StringWriter;
 import java.util.Arrays;

@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 /**
- * @author atom
+ * @author Atom
  */
 @Data
 public class Button {

@@ -1,14 +1,14 @@
-package com.atom.atomwechat.handler;
+package com.atom.atomwechat.handler.normal;
 
 import com.atom.atomwechat.annotation.MsgType;
 import com.atom.atomwechat.enums.ReqMsgTypeEnum;
+import com.atom.atomwechat.handler.ReqMsgHandler;
 import com.atom.atomwechat.helper.RespMessageHelper;
-import com.atom.atomwechat.model.req.ReqTextMessage;
+import com.atom.atomwechat.model.req.normal.ReqTextMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import javax.xml.bind.JAXBException;
 
 /**
  * @author atom

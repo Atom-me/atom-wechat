@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * @author atom
+ * @author Atom
  */
 @Component
 public class MessageBeanRegistor implements InitializingBean {

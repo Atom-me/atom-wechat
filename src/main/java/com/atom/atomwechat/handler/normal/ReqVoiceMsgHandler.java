@@ -1,8 +1,9 @@
-package com.atom.atomwechat.handler;
+package com.atom.atomwechat.handler.normal;
 
 import com.atom.atomwechat.annotation.MsgType;
 import com.atom.atomwechat.enums.ReqMsgTypeEnum;
-import com.atom.atomwechat.model.req.ReqVoiceMessage;
+import com.atom.atomwechat.handler.ReqMsgHandler;
+import com.atom.atomwechat.model.req.normal.ReqVoiceMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

@@ -26,7 +26,7 @@ import java.util.List;
  * "qr_scene_str": ""
  * }
  *
- * @author atom
+ * @author Atom
  */
 @Data
 public class Subscriber {

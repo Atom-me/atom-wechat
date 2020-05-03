@@ -1,7 +1,7 @@
 package com.atom.atomwechat.controller;
 
 import com.atom.atomwechat.helper.AccessTokenHelper;
-import com.atom.atomwechat.model.req.shorturl.ShortUrlReq;
+import com.atom.atomwechat.model.shorturl.ShortUrlReq;
 import com.atom.atomwechat.model.resp.AccessTokenResp;
 import com.atom.atomwechat.model.resp.ShortUrlResp;
 import com.fasterxml.jackson.databind.ObjectMapper;

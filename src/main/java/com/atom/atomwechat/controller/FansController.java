@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * 粉丝管理
  *
- * @author atom
+ * @author Atom
  */
 @RestController
 @RequestMapping("/fans")
