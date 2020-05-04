@@ -1,6 +1,5 @@
 package com.atom.atomwechat.helper;
 
-import com.atom.atomwechat.constant.WeChatConstant;
 import com.atom.atomwechat.enums.ButtonTypeEnum;
 import com.atom.atomwechat.model.menu.Button;
 import com.atom.atomwechat.model.menu.ClickButton;
