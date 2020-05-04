@@ -63,4 +63,10 @@ public class WeChatUserInfo {
      */
     @JsonProperty(value = "unionid")
     private String unionId;
+
+    @JsonProperty(value = "errcode")
+    private String errCode;
+
+    @JsonProperty(value = "errmsg")
+    private String errMsg;
 }

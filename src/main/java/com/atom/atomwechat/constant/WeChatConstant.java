@@ -84,11 +84,11 @@ public interface WeChatConstant {
      * 通过code换取网页授权access_token
      * 这里通过code换取的是一个特殊的网页授权access_token,与基础支持中的access_token（该access_token用于调用其他接口）不同
      */
-    String OAUTH2_ACCESS_TOKEN = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code";
+    String OAUTH2_ACCESS_TOKEN_BASE_URL = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code";
 
     /**
      * 拉取用户信息(需scope为 snsapi_userinfo)
      * ACCESS_TOKEN:网页授权接口调用凭证,注意：此access_token与基础支持的access_token不同
      */
-    String OAUTH2_USER_INFO = "https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN";
+    String OAUTH2_USER_INFO_BASE_URL = "https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN";
 }

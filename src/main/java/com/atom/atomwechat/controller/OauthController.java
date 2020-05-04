@@ -69,21 +69,26 @@ public class OauthController {
         String state = request.getParameter("state");
 
         // 得到code之后，通过code换取网页授权access_token(请求腾讯认证服务器)
-        String oAuthTokenUrl = StringUtils.replaceEach(OAUTH2_ACCESS_TOKEN,
+        String oAuthTokenRealUrl = StringUtils.replaceEach(OAUTH2_ACCESS_TOKEN_BASE_URL,
                 new String[]{"APPID", "SECRET", "CODE"},
                 new String[]{APP_ID, APP_SECRET, code});
 
-        ResponseEntity<Oauth2AccessTokenResp> oauth2AccessTokenResponseEntity = restTemplate.postForEntity(oAuthTokenUrl, null, Oauth2AccessTokenResp.class);
+        ResponseEntity<Oauth2AccessTokenResp> oauth2AccessTokenResponseEntity = restTemplate.postForEntity(oAuthTokenRealUrl, null, Oauth2AccessTokenResp.class);
         Oauth2AccessTokenResp oauth2AccessTokenResp = oauth2AccessTokenResponseEntity.getBody();
         log.info(oauth2AccessTokenResp.toString());
 
         //根据openid 和 access_token 拉取用户信息(需scope为 snsapi_userinfo)（请求腾讯资源服务器）
-        String userInfoUrl = StringUtils.replaceEach(OAUTH2_USER_INFO,
+        String userInfoUrl = StringUtils.replaceEach(OAUTH2_USER_INFO_BASE_URL,
                 new String[]{"ACCESS_TOKEN", "OPENID"},
-                new String[]{oauth2AccessTokenResp.getAccessToken(), oauth2AccessTokenResp.getOpenId()});
+                new String[]{"oauth2AccessTokenResp.getAccessToken()", oauth2AccessTokenResp.getOpenId()});
 
         WeChatUserInfo userInfo = restTemplate.getForObject(userInfoUrl, WeChatUserInfo.class);
         log.info(userInfo.toString());
+/*
+
+        ResponseEntity<WeChatUserInfo> forEntity = restTemplate.getForEntity(userInfoUrl, WeChatUserInfo.class);
+*/
+
         model.addAttribute("userInfo", userInfo);
         return "userInfo";
     }

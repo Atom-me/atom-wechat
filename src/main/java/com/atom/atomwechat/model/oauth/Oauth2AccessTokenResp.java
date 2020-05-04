@@ -40,4 +40,10 @@ public class Oauth2AccessTokenResp {
      */
     private String scope;
 
+    @JsonProperty(value = "errcode")
+    private String errCode;
+
+    @JsonProperty(value = "errmsg")
+    private String errMsg;
+
 }
