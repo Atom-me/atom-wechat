@@ -82,14 +82,13 @@ public class OauthController {
                 new String[]{"ACCESS_TOKEN", "OPENID"},
                 new String[]{"oauth2AccessTokenResp.getAccessToken()", oauth2AccessTokenResp.getOpenId()});
 
-        WeChatUserInfo userInfo = restTemplate.getForObject(userInfoUrl, WeChatUserInfo.class);
-        log.info(userInfo.toString());
-/*
+        /*
+         WeChatUserInfo userInfo = restTemplate.getForObject(userInfoUrl, WeChatUserInfo.class);
+        */
+        ResponseEntity<WeChatUserInfo> userInfoEntity = restTemplate.getForEntity(userInfoUrl, WeChatUserInfo.class);
+        log.info(userInfoEntity.toString());
 
-        ResponseEntity<WeChatUserInfo> forEntity = restTemplate.getForEntity(userInfoUrl, WeChatUserInfo.class);
-*/
-
-        model.addAttribute("userInfo", userInfo);
+        model.addAttribute("userInfo", userInfoEntity.getBody());
         return "userInfo";
     }
 }
