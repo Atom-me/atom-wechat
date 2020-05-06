@@ -36,6 +36,11 @@ public class Oauth2AccessTokenResp {
     @JsonProperty(value = "openid")
     private String openId;
     /**
+     * 只有在用户将公众号绑定到微信开放平台帐号后，才会出现该字段。
+     */
+    @JsonProperty(value = "unionid")
+    private String unionId;
+    /**
      * 用户授权的作用域，使用逗号（,）分隔
      */
     private String scope;
