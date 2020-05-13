@@ -18,9 +18,6 @@ public enum ReqMsgTypeEnum {
      * 文本消息
      */
     TEXT("text", "", "", "文本消息"),
-    /**
-     * 语音消息
-     */
     VOICE("voice", "", "", "语音消息"),
     IMAGE("image", "", "", "图片消息"),
     VIDEO("video", "", "", "视频消息"),
@@ -55,6 +52,12 @@ public enum ReqMsgTypeEnum {
      * 点击菜单跳转链接时的事件推送
      */
     EVENT_VIEW("event", "VIEW", "", "点击菜单跳转链接时的事件推送"),
+    /**
+     * 在模版消息发送任务完成后，微信服务器会将是否送达成功作为通知，发送到开发者在开发模式中填写的URL中。
+     */
+    EVENT_TEMPLATE_SEND_JOB_FINISH("event", "TEMPLATESENDJOBFINISH", "", "在模版消息发送任务完成后的事件推送"),
+
+
     ;
 
     /**

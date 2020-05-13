@@ -70,16 +70,18 @@ public class BlackListController {
     @PostMapping("batchblacklist")
     public ResponseEntity<String> batchBlackList(@RequestBody List<String> openIds) {
         AccessTokenResp accessTokenResp = accessTokenHelper.fetchAccessToken();
-        String get_black_list_url = BATCH_BLACK_LIST.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
+        String getBlackListUrl = BATCH_BLACK_LIST_URL.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
         //当 begin_openid 为空时，默认从开头拉取。
         Map<String, List<String>> param = new HashMap<>(1);
         param.put("openid_list", openIds);
-        String responseStr = restTemplate.postForObject(get_black_list_url, param, String.class);
+        String responseStr = restTemplate.postForObject(getBlackListUrl, param, String.class);
         return ResponseEntity.ok(responseStr);
     }
 
     /**
      * 取消拉黑用户
+     * 请求参数数组形式
+     * ["oSu9iw3RE6e-YnpYI8ckm12Hx8LE"]
      *
      * @param openIds
      * @return
@@ -87,11 +89,11 @@ public class BlackListController {
     @PostMapping(value = "batchunblacklist")
     public ResponseEntity<String> batchUnBlackList(@RequestBody List<String> openIds) {
         AccessTokenResp accessTokenResp = accessTokenHelper.fetchAccessToken();
-        String get_black_list_url = BATCH_UN_BLACK_LIST.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
+        String getBlackListUrl = BATCH_UN_BLACK_LIST_URL.replace("ACCESS_TOKEN", accessTokenResp.getAccessToken());
         //当 begin_openid 为空时，默认从开头拉取。
         Map<String, List<String>> param = new HashMap<>(1);
         param.put("openid_list", openIds);
-        String responseStr = restTemplate.postForObject(get_black_list_url, param, String.class);
+        String responseStr = restTemplate.postForObject(getBlackListUrl, param, String.class);
         return ResponseEntity.ok(responseStr);
     }
 }

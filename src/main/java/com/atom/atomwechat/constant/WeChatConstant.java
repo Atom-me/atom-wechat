@@ -36,7 +36,7 @@ public interface WeChatConstant {
     String BASE_DOMAIN_URL = "http://atom.vipgz4.idcfengye.com";
 
     /**
-     * 公众平台的API调用所需的access_token
+     * 公众平台的API调用所需的access_token，即微信接口调用凭证
      */
     String ACCESS_TOKEN_URL = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={1}&secret={2}";
 
@@ -68,12 +68,12 @@ public interface WeChatConstant {
     /**
      * 批量拉黑用户
      */
-    String BATCH_BLACK_LIST = "https://api.weixin.qq.com/cgi-bin/tags/members/batchblacklist?access_token=ACCESS_TOKEN";
+    String BATCH_BLACK_LIST_URL = "https://api.weixin.qq.com/cgi-bin/tags/members/batchblacklist?access_token=ACCESS_TOKEN";
 
     /**
      * 取消拉黑用户
      */
-    String BATCH_UN_BLACK_LIST = "https://api.weixin.qq.com/cgi-bin/tags/members/batchunblacklist?access_token=ACCESS_TOKEN";
+    String BATCH_UN_BLACK_LIST_URL = "https://api.weixin.qq.com/cgi-bin/tags/members/batchunblacklist?access_token=ACCESS_TOKEN";
 
     /**
      * 微信网页授权
@@ -91,4 +91,45 @@ public interface WeChatConstant {
      * ACCESS_TOKEN:网页授权接口调用凭证,注意：此access_token与基础支持的access_token不同
      */
     String OAUTH2_USER_INFO_BASE_URL = "https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN";
+
+    /**
+     * POST 请求
+     * 设置所属行业
+     * 设置行业可在微信公众平台后台完成，每月可修改行业1次，帐号仅可使用所属行业中相关的模板，为方便第三方开发者，提供通过接口调用的方式来修改账号所属行业
+     */
+    String API_SET_INDUSTRY_URL = "https://api.weixin.qq.com/cgi-bin/template/api_set_industry?access_token=ACCESS_TOKEN";
+
+    /**
+     * GET 请求
+     * 获取设置的行业信息
+     * 获取帐号设置的行业信息。可登录微信公众平台，在公众号后台中查看行业信息。为方便第三方开发者，提供通过接口调用的方式来获取帐号所设置的行业信息
+     */
+    String GET_INDUSTRY_URL = "https://api.weixin.qq.com/cgi-bin/template/get_industry?access_token=ACCESS_TOKEN";
+
+    /**
+     * POST 请求
+     * 获得模板ID
+     * 从行业模板库选择模板到帐号后台，获得模板ID的过程可在微信公众平台后台完成。为方便第三方开发者，提供通过接口调用的方式来获取模板ID，
+     */
+    String API_ADD_TEMPLATE_URL = "https://api.weixin.qq.com/cgi-bin/template/api_add_template?access_token=ACCESS_TOKEN";
+
+    /**
+     * GET 请求
+     * 获取模板列表
+     * 获取已添加至帐号下所有模板列表，可在微信公众平台后台中查看模板列表信息。为方便第三方开发者，提供通过接口调用的方式来获取帐号下所有模板信息
+     */
+    String GET_ALL_PRIVATE_TEMPLATE_URL = "https://api.weixin.qq.com/cgi-bin/template/get_all_private_template?access_token=ACCESS_TOKEN";
+
+    /**
+     * POST 请求
+     * 删除模板
+     * 删除模板可在微信公众平台后台完成，为方便第三方开发者，提供通过接口调用的方式来删除某帐号下的模板
+     */
+    String DEL_PRIVATE_TEMPLATE_URL = "https://api.weixin.qq.com/cgi-bin/template/del_private_template?access_token=ACCESS_TOKEN";
+
+    /**
+     * POST请求
+     * 发送模板消息
+     */
+    String TEMPLATE_SEND_URL = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=ACCESS_TOKEN";
 }
