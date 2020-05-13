@@ -33,24 +33,24 @@ public class TemplateMsgController {
         body.setTopColor("#FF0000");
 
         TemplateMsgData first = new TemplateMsgData();
-        first.setName("name");
-        first.setValue("Atom");
+        first.setFieldName("name");
+        first.setFieldValue("Atom");
 
         TemplateMsgData company = new TemplateMsgData();
-        company.setName("company");
-        company.setValue("facebook");
+        company.setFieldName("company");
+        company.setFieldValue("facebook");
 
         TemplateMsgData time = new TemplateMsgData();
-        time.setName("time");
-        time.setValue("2020-09-08");
+        time.setFieldName("time");
+        time.setFieldValue("2020-09-08");
 
         TemplateMsgData remark = new TemplateMsgData();
-        remark.setName("remark");
-        remark.setValue("记得带钱～");
+        remark.setFieldName("remark");
+        remark.setFieldValue("记得带钱～");
 
         TemplateMsgData result = new TemplateMsgData();
-        result.setName("result");
-        result.setValue("通过了～");
+        result.setFieldName("result");
+        result.setFieldValue("通过了～");
 
         List<TemplateMsgData> templateMsgData = Arrays.asList(first, company, time, result, remark);
 

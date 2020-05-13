@@ -38,7 +38,7 @@ public class TemplateMsgHelper {
         log.info("send template message request params: {}", templateMsgJson);
         String result = restTemplate.postForObject(url, templateMsgJson, String.class);
         log.info("send template message result: {}", result);
-        return null;
+        return result;
     }
 
 }
