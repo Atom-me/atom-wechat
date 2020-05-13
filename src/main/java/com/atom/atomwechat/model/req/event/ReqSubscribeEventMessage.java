@@ -49,7 +49,9 @@ public class ReqSubscribeEventMessage {
     @XmlElement(name = "MsgType")
     private String msgType;
     /**
-     * 事件类型，subscribe(订阅)、unsubscribe(取消订阅)
+     * 事件类型，subscribe(订阅)
+     *
+     * @see com.atom.atomwechat.enums.ReqMsgTypeEnum#EVENT_SUBSCRIBE
      */
     @XmlElement(name = "Event")
     private String event;

@@ -49,7 +49,9 @@ public class ReqClickEventMessage {
     @XmlElement(name = "MsgType")
     private String msgType;
     /**
-     * 事件类型，VIEW
+     * 事件类型，CLICK
+     *
+     * @see com.atom.atomwechat.enums.ReqMsgTypeEnum#EVENT_CLICK
      */
     @XmlElement(name = "Event")
     private String event;

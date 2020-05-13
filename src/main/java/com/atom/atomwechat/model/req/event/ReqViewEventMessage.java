@@ -51,6 +51,8 @@ public class ReqViewEventMessage {
     private String msgType;
     /**
      * 事件类型
+     *
+     * @see com.atom.atomwechat.enums.ReqMsgTypeEnum#EVENT_VIEW
      */
     @XmlElement(name = "Event")
     private String event;

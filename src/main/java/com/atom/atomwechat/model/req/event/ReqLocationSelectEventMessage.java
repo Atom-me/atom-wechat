@@ -59,7 +59,9 @@ public class ReqLocationSelectEventMessage {
     @XmlElement(name = "MsgType")
     private String msgType;
     /**
-     * 事件类型，subscribe(订阅)、unsubscribe(取消订阅)
+     * 事件类型，
+     *
+     * @see com.atom.atomwechat.enums.ReqMsgTypeEnum#EVENT_LOCATION_SELECT
      */
     @XmlElement(name = "Event")
     private String event;
