@@ -64,22 +64,22 @@ public enum ReqMsgTypeEnum {
      * 请求消息类型
      */
     @Getter
-    private String msgType;
+    private final String msgType;
     /**
      * 事件类型
      */
     @Getter
-    private String event;
+    private final String event;
     /**
      * 事件KEY值
      */
     @Getter
-    private String eventKey;
+    private final String eventKey;
     /**
      * 请求消息类型描述
      */
     @Getter
-    private String desc;
+    private final String desc;
 
 
     ReqMsgTypeEnum(String msgType, String event, String eventKey, String desc) {

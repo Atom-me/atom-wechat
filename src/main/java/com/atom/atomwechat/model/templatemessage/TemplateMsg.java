@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 模版消息对象
  * <p>
  * {
  * "touser": "OPENID",
@@ -73,10 +74,16 @@ public class TemplateMsg {
     @JsonProperty(value = "topcolor")
     private String topColor;
     /**
-     * 模板数据
+     * 模板数据 体
      */
     private Map<String, Map<String, String>> data;
 
+    /**
+     * 构建模版消息 data 体
+     *
+     * @param dataList
+     * @return
+     */
     public TemplateMsg buildTemplateMsgData(List<TemplateMsgData> dataList) {
         Map<String, Map<String, String>> data = Maps.newHashMapWithExpectedSize(dataList.size());
         if (!dataList.isEmpty()) {

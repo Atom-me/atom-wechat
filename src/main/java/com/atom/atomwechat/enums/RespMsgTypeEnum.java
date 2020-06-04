@@ -18,9 +18,9 @@ public enum RespMsgTypeEnum {
     ;
 
     @Getter
-    private String type;
+    private final String type;
     @Getter
-    private String desc;
+    private final String desc;
 
     RespMsgTypeEnum(String type, String desc) {
         this.type = type;

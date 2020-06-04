@@ -62,9 +62,9 @@ public enum ButtonTypeEnum {
 
 
     @Getter
-    private String type;
+    private final String type;
     @Getter
-    private String desc;
+    private final String desc;
 
     ButtonTypeEnum(String type, String desc) {
         this.type = type;

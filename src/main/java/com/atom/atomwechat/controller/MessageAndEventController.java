@@ -9,7 +9,6 @@ import com.atom.atomwechat.model.BaseMsgBean;
 import com.atom.atomwechat.utils.WeChatUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
-import org.dom4j.DocumentException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;

@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 粉丝管理
@@ -40,11 +40,11 @@ public class FansController {
      */
     @GetMapping("fansinfos")
     public List<Subscriber> fansInfoList() {
-        List<Subscriber> subscribers = new ArrayList<>();
-        fansHelper.list().getData().getOpenId().forEach(openid -> {
-            Subscriber info = fansHelper.info(openid);
-            subscribers.add(info);
-        });
-        return subscribers;
+        return fansHelper.list()
+                .getData()
+                .getOpenId()
+                .stream()
+                .map(openId -> fansHelper.info(openId))
+                .collect(Collectors.toList());
     }
 }

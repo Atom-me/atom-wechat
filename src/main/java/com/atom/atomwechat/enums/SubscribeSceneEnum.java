@@ -24,9 +24,9 @@ public enum SubscribeSceneEnum {
     ;
 
     @Getter
-    private String code;
+    private final String code;
     @Getter
-    private String desc;
+    private final String desc;
 
     SubscribeSceneEnum(String code, String desc) {
         this.code = code;

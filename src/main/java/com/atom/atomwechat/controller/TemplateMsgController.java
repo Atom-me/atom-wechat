@@ -14,6 +14,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * 发送模版消息
+ *
  * @author Atom
  */
 @RestController
@@ -26,6 +28,7 @@ public class TemplateMsgController {
     @GetMapping("send")
     public ResponseEntity<String> testSendTemplateMsg() throws JsonProcessingException {
 
+        //构建模版消息对象
         TemplateMsg body = new TemplateMsg();
         body.setToUser("oSu9iw5mdd3btzDXXZwYRViaYttI");
         body.setTemplateId("KrLCU8BVLSg9KfsaepZlC-t-VXxO4XT57LKePDwKxuY");
