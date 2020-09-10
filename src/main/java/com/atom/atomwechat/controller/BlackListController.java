@@ -48,8 +48,8 @@ public class BlackListController {
         Map<String, String> param = new HashMap<>(1);
         param.put("begin_openid", "");
         BlackList blackList = restTemplate.postForObject(getBlackListUrl, param, BlackList.class);
-        log.error("==================================");
-        log.error(blackList.toString());
+        log.info("==================================");
+        log.info(blackList.toString());
         List<Subscriber> weChatUserInfoList = Lists.newArrayList();
         if (blackList.getCount() <= 0) {
             return ResponseEntity.ok(weChatUserInfoList);

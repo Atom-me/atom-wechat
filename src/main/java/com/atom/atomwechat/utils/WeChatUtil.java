@@ -3,7 +3,6 @@ package com.atom.atomwechat.utils;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author Atom
@@ -21,8 +20,7 @@ public final class WeChatUtil {
     public static boolean checkSignature(String token, String timestamp, String nonce, String signature) {
         List<String> params = Arrays.asList(token, timestamp, nonce);
         Collections.sort(params);
-        String finalParamStr = params.stream()
-                .collect(Collectors.joining());
+        String finalParamStr = String.join("", params);
         return signature.equals(Sha1Util.encode(finalParamStr));
     }
 }
