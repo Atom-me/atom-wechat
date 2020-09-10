@@ -68,7 +68,7 @@ public class OauthController {
         String code = request.getParameter("code");
         String state = request.getParameter("state");
 
-        // 得到code之后，通过code换取网页授权access_token(请求腾讯认证服务器)
+        // 得到code之后，通过code换取[网页授权access_token 非基础接口token](请求腾讯认证服务器)
         String oAuthTokenRealUrl = StringUtils.replaceEach(OAUTH2_ACCESS_TOKEN_BASE_URL,
                 new String[]{"APPID", "SECRET", "CODE"},
                 new String[]{APP_ID, APP_SECRET, code});

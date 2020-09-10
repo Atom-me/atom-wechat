@@ -22,6 +22,7 @@ public class AccessTokenHelper {
 
     /**
      * fetch AccessToken.
+     * 公众平台的API调用所需的access_token，即微信接口调用凭证
      *
      * @return
      */

@@ -52,6 +52,8 @@ public interface WeChatConstant {
 
     /**
      * 获取用户基本信息（包括UnionID机制）
+     * access_token:调用接口凭证,基础接口token
+     * 如果用户没有关注该公众号，拉取不到其余信息。只返回 subscribe=0,表示未关注
      */
     String FANS_INFO_URL = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={1}&openid={2}&lang=zh_CN";
 
