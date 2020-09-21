@@ -1,5 +1,5 @@
 # atomwechat
-wechat framework
+wechat framework SDK
 ## 使用技术
 > - springboot
 > - guava
