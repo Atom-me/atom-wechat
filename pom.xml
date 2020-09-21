@@ -9,9 +9,9 @@
         <relativePath/>
     </parent>
     <groupId>com.atom</groupId>
-    <artifactId>atomwechat</artifactId>
+    <artifactId>atom-wechat</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>atomwechat</name>
+    <name>atom-wechat</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
