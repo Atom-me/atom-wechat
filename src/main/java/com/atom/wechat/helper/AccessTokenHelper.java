@@ -29,7 +29,7 @@ public class AccessTokenHelper {
     @Cacheable(cacheNames = "accessTokenCache")
     public AccessTokenResp fetchAccessToken() {
         AccessTokenResp accessTokenResp = restTemplate.getForObject(ACCESS_TOKEN_URL, AccessTokenResp.class, APP_ID, APP_SECRET);
-        log.info("get accessToken method from Tencent>>>>>>>>>>>>>>>>>>>>>>" + accessTokenResp.toString());
+        log.info("get accessToken method from Tencent>>>>>>>>>>>>>>>>>>>>>>[{}]", accessTokenResp.toString());
         return accessTokenResp;
     }
 
